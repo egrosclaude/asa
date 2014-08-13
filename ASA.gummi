@@ -1,0 +1,11 @@
+version=0.6.0
+typesetter=pdflatex
+steps=texpdf
+root=/home/oso/Copy/FAI/TUASSL/AAS/ASA/ASA.tex
+file=/home/oso/Copy/FAI/TUASSL/AAS/ASA/ASA-part1.tex
+file=/home/oso/Copy/FAI/TUASSL/AAS/ASA/ASA-header.tex
+
+file=/home/oso/Copy/FAI/TUASSL/AAS/ASA/ASA-Scripting.tex
+file=/home/oso/Copy/FAI/TUASSL/AAS/ASA/ASA-cronog.tex
+file=/home/oso/Copy/FAI/TUASSL/AAS/ASA/ASA-eval.tex
+file=/home/oso/Copy/FAI/TUASSL/AAS/ASA/ASA-Anexos.tex
