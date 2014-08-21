@@ -1,0 +1,88 @@
+Los equipos de computación para usuarios finales serán cada vez más
+poderosos. La virtualización puede ser una forma de obtener aún mayor
+rendimiento de estos equipos, convirtiéndolos en el equivalente de
+varias máquinas a la vez. La charla muestra qué son y para qué sirven
+las máquinas virtuales y muestra algunas formas de virtualización, con
+sus diferentes alcances, requerimientos y características.
+Temario
+* Conceptos
+	* Sistemas Operativos
+		* Kernel, hardware y drivers de dispositivos
+		* Virtualización de dispositivos
+			* Descubrimiento de dispositivos
+				* PCI
+			* Control de dispositivos
+				* Iniciar operaciones
+			* Transferencias de datos 
+				* Dispositivo<->memoria
+				* DMA
+			* Control de Interrupciones
+				* Capacidad de notificar al sw de eventos
+		* Ejemplos de Virtualización
+			* RAM Disk
+			* RAID
+			* VPN
+			* VFS
+	* VMM (Virtual Machine Monitor)
+		* VMM Tipo 1 (nativo): corre directamente sobre hardware físico 
+		* VMM Tipo 2 (hosted): corre como proceso del SO y ofrece un anillo 0 simulado a las MV
+		* De procesos o de aplicación (Java VM)
+		* De sistema (VMWare)
+	* Virtualización de dispositivos
+		* CPU
+		* E/S
+		* Discos
+		* Redes
+	* Protección y virtualización
+	* Máquinas virtuales
+		* Guests y Hosts
+	* Ejemplos
+		* Propietarios
+			* :osobox:old:zim:Público:Software Libre:VmWare
+			* :osobox:old:zim:Público:Software Libre:VirtualPC
+			* Virtuozzo
+		* GPL
+			* :osobox:old:zim:Público:Software Libre:VirtualBox
+			* QEMU
+			* Xen
+			* KVM
+		* Otros
+			* WINE
+			* Colinux
+			* UML
+			* :osobox:old:zim:Público:Software Libre:OpenVZ
+			* Vserver
+* Aplicaciones para el usuario final
+	* Revolución del multicore
+		* Muchos equipos en uno
+	* Sistemas legacy
+	* Probar nuevas distribuciones u otro software
+	* Probar actualizaciones
+* Aplicaciones para el administrador de sistemas
+	* Independencia del hardware
+	* Provisioning
+	* Live Migration para balance de carga
+	* Hosting de servicios
+	* Consolidación en el server room
+		* Menos espacio
+		* Menos consumo
+		* Menos calor
+* Clases de virtualización
+	* Emulación 
+	* Paravirtualización
+	* Virtualización asistida por hardware
+* Ejemplos
+	* QEMU
+		* Emulación
+		* Módulo acelerador
+	* Xen
+		* Hypervisor
+		* Para/Full Virt
+		* Red default bridge
+	* KVM
+		* Full Virt
+		* Red default, NAT
+* Tendencias
+	* Hardware cada vez más orientado a virtualización
+	* Multicore/manycore
+	* VMM monolítico con apoyo del hardware

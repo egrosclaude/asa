@@ -12,6 +12,8 @@
 \usepackage{float}
 \usepackage{xkeyval}
 \usepackage[pdftex]{graphicx}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+
 \usepackage{appendix}
 \usepackage{listings}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -29,15 +31,28 @@
   numbers=none,
   numberstyle=\tiny\color{gray},
   keywordstyle=\color{blue},
-  commentstyle=\color{dkgreen},
+  %commentstyle=\color{dkgreen},
   stringstyle=\color{mauve},
   breaklines=true,
-  breakatwhitespace=true
+  breakatwhitespace=true,
+  extendedchars=true,
   tabsize=3
 }
 
+\usepackage{caption}
+
+%\DeclareCaptionFont{black}{ \color{black} }
+%\DeclareCaptionFormat{listing}{
+%  \colorbox[cmyk]{0.93, 0.95, 0.95,0.01 }{
+%    \parbox{\textwidth}{\hspace{15pt}#1#2#3}
+%  }
+%}
+%\captionsetup[lstlisting]{ format=listing, labelfont=black, textfont=black, singlelinecheck=false, margin=0pt, font={bf,footnotesize} }
+\captionsetup[lstlisting]{format=plain, font={footnotesize}}
+% ...
 
 
+%\renewcommand{\lstlistingname}{Code}
 \usepackage{verbatim}
 \begin{comment}
 	\hypersetup{
@@ -53,6 +68,8 @@
 	pdfkeywords={Software Libre, Tecnicatura en Administración de Sistemas y 		Software Libre, Universidad Nacional del Comahue}
 	}
 \end{comment}	
+
+
 
 %\addto\captionsspanish {%
 %	\def\appendixname{Apéndices}
@@ -129,6 +146,14 @@
 \newcommand{\revisar}[1]{{\color{red}[#1]}}
 %\newcommand{\nota}[1]{{\color{red}[#1]}}
 %\newcommand{\revisar}[1]{}
+
+\newcommand{\borrador}{
+\revisar{\today, \currenttime  -  Material en preparación, se ruega no imprimir mientras aparezca esta nota}
+}
+
+
+
+
 \newcommand{\nota}[1]{}
 
 \newcommand{\nonota}[1]{#1}
@@ -149,3 +174,5 @@
  \label{fig:#2} 
  \end{figure} 
 }
+
+

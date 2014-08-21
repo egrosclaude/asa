@@ -96,7 +96,7 @@ $ let "i+=1"
 $ echo $i
 	9
 $ i=3
-$ (( i+=4))
+$ (( i+=4 ))
 $ echo $i
 	7
 $ (( i=i-2 ))
@@ -152,11 +152,9 @@ $ cat texto.txt
 # 9 = SIGKILL (Sent a kill command)
 
 trap limpieza 1 2 3 6 9
-
 function limpieza
 {
 	echo "Recibimos senal - desmantelando..."
-	# Borrar archivos temporarios
 	rm -f ${tempfiles}
 	echo Finalizando
 }
