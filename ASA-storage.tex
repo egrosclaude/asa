@@ -8,12 +8,14 @@
 	\item	Diseños típicos de almacenamiento
 \end{enumerate}
 
+
 \section{Dispositivos y filesystems}
-Los dispositivos de bloques están asociados a algún medio de almacenamiento, real o virtual. Presentan una interfaz que provee direccionamiento random o directo (operación de seek). Pueden directamente contener un filesystem u ofrecer soporte a otros dispositivos virtuales que los agrupan o en general modifican su comportamiento.
+Los dispositivos lógicos de bloques están asociados a algún medio de almacenamiento, real o virtual.  Ejemplos de dispositivos de bloques que encontramos con frecuencia son \lstinline$/dev/sda, /dev/sda1, /dev/dvd$, etc.
 
 \figura[14]{IO}{I/O y dispositivos}{IO.jpg} 
 
-Los típicos dispositivos de bloques con los que nos encontramos son los discos y las particiones, pero es interesante conocer otros dispositivos que están soportados por archivos, volúmenes lógicos, u otros, remotos, que se acceden por medio de la red. 
+
+\nonota{Presentan una interfaz que provee direccionamiento random o directo, es decir, sus bloques están numerados y se puede acceder a cualquier bloque con independencia de cuál haya sido accedido anteriormente (operación de \emph{seek}). Pueden directamente contener un filesystem u ofrecer soporte a otros dispositivos virtuales, que los agrupan (como los dispositivos RAID) o en general los utilizan (como los dispositivos snapshot de LVM). Los típicos dispositivos de bloques con los que nos encontramos son los discos y las particiones, pero es interesante conocer otros dispositivos que están soportados por volúmenes lógicos, archivos, u otros, remotos, que se acceden por medio de la red.}
 
 \subsection{Temas de práctica}
 \begin{enumerate}
@@ -22,359 +24,86 @@ Los típicos dispositivos de bloques con los que nos encontramos son los discos 
 	\item Comando dd, modificadores bs y count. Copia de dispositivos y archivos.
 	\item Dispositivos /dev/null y /dev/zero. Creación de archivos prealojados. Modificador seek. 
 	\item Comando mkfs. Tipo de filesystem. Filesystems sobre una partición, sobre un archivo.
-	\item Comando losetup. Comando mount. Opciones ro, loop, offset. Montado de filesystems sobre una partición física, sobre un archivo, sobre una partición en una imagen de disco.
+	\item Loop devices. Comando losetup. Comando mount. Opciones ro, loop, offset. Montado de filesystems sobre una partición física, sobre un archivo, sobre una partición en una imagen de disco.
 	\item Redimensionamiento de filesystems. Comando dd y modificador conv=notrunc. Comando resize2fs. Opciones relacionadas con filesystems en parted.
 \end{enumerate}
 
-\section{RAID}
-
-Los \emph{arrays} RAID (Redundant Array of Independent Disks) son dispositivos virtuales creados como combinación de dos o más dispositivos virtuales. El dispositivo virtual resultante puede contener un filesystem. 
-
-Los diferentes modos de combinación de dispositivos, llamados niveles RAID, ofrecen diferentes características de redundancia y performance. Un array RAID con redundancia ofrece protección contra fallos de dispositivos. 
-
-Los dispositivos Software RAID de Linux son creados y manejados por el driver \lstinline{md} y por eso suelen recibir nombres como \lstinline{md0}, \lstinline{md1}, etc.
-
- 
-\begin{itemize}
-	\item Redundancia para tolerancia a fallos
-	\item Mejoramiento de velocidad de acceso
-	\item Niveles 
-	\item Hardware RAID, fake RAID, Software RAID
-	\item Devices
-	\item Spare disks, faulty disks
-\end{itemize}
-
-
-
-\subsection {Niveles RAID}
-\subsubsection{Linear mode}
-Dos o más dispositivos concatenados. La escritura de datos ocupa los dispositivos en el orden en que son declarados. 
-Sin redundancia.
-Mejora la performance cuando diferentes usuarios acceden a diferentes secciones del file system, soportadas en diferentes dispositivos.
-
-
-\subsubsection{RAID-0}
-\label{ssub:RAID-0}
-Las operaciones son distribuidas (\emph{striped}) entre los dispositivos, alternando circularmente entre ellos. Cada dispositivo se accede en paralelo, mejorando el rendimiento. Sin redundancia. 
-% subsubsection RAID-0 (end)
-
-
-\subsubsection{RAID-1}
-\label{ssub:RAID-1}
-
-Dos o más dispositivos replicados (\emph{mirrored}), con cero o más \emph{spares}. 
-Con redundancia. Los dispositivos deben ser del mismo tamaño. Si existen \emph{spares}, en caso de falla o salida de servicio de un dispositivo, el sistema reconstruirá automáticamente una réplica de los datos sobre uno de ellos. 
-En un RAID-1 de $N$ dispositivos, pueden fallar o quitarse hasta $N-1$ de ellos sin afectar la disponibilidad de los datos. 
-Si $N$ es grande, el bus de I/O puede ser un cuello de botella (al contrario que en Hardware RAID-1). El scheduler de Software RAID en Linux asigna las lecturas a aquel dispositivo cuya cabeza lectora está más cerca de la posición buscada. 
-% subsubsection RAID-1 (end)
-
-
-\subsubsection{RAID-4}
-\label{ssub:RAID-4}
-No se usa frecuentemente. Usado sobre tres o más dispositivos. Mantiene información de paridad sobre un dispositivo, y escribe sobre los restantes en la misma forma que RAID-0. EL tamaño del array será $(N-1)*S$, donde $S$ es el tamaño del dispositivo de menor capacidad en el array. 
-Al fallar un dispositivo, los datos se reconstruirán automáticamente usando la información de paridad. El dispositivo que soporta la paridad se constituye en el cuello de botella del sistema. 
-% subsubsection RAID-4 (end)
-
-
-\subsubsection{RAID-5}
-\label{ssub:RAID-5}
-Utilizado sobre tres o más dispositivos con cero o más \emph{spares}. El tamaño del dispositivo RAID será $(N-1)*S$. La diferencia con RAID-4 es que la información de paridad se distribuye entre los dispositivos, eliminando el cuello de botella de RAID-4 y obteniendo mejor performance en lectura. Al fallar uno de los dispositivos, los datos siguen disponibles. Si existen \emph{spares}, el sistema reconstruirá automáticamente el dispositivo faltante. Si se pierden dos o más dispositivos simultáneamente, o durante una reconstrucción, los datos se pierden definitivamente. RAID-5 sobrevive a la falla de un dispositivo, pero no de dos o más. 
-La performance en lectura y escritura mejora con respecto a un solo dispositivo. 
-% subsubsection RAID-5 (end)
-
-
-\subsubsection{RAID-6}
-\label{ssub:RAID-6}
-Usado sobre cuatro o más dispositivos con cero o más \emph{spares}. La diferencia con RAID-5 es que existen dos diferentes bloques de información de paridad, distribuidos entre los dispositivos participantes, mejorando la robustez. El tamaño del dispositivo RAID-6 es $(N-2)*S$. Si fallan uno o dos de los dispositivos, los datos siguen disponibles. Si existen \emph{spares}, el sistema reconstruirá automáticamente los dispositivos faltante. La performance en lectura es similar a RAID-5, pero la de escritura no es tan buena.
-% subsubsection RAID-6 (end)
-
-\subsubsection{RAID-10}
-\label{ssub:RAID-10}
-Combinación de RAID-1 y RAID-0 completamente ejecutada por el kernel, más eficiente que aplicar dos niveles de RAID independientemente. Es capaz de aumentar la eficiencia en lectura de acuerdo a la cantidad de dispositivos, en lugar de la cantidad de pares RAID-1, ofreciendo un 95\% del rendimiento de RAID-0 con la misma cantidad de dispositivos. Los \emph{spares} pueden ser compartidos entre todos los pares RAID-1.
-% subsubsection RAID-10 (end)
-
-
-\subsubsection{FAULTY}
-\label{ssub:FAULTY}
-
-Nivel especial de RAID que sirve para debugging del array por inyección de fallos de lectura y escritura. Sólo permite un dispositivo. Simula fallos a bajo nivel, permitiendo analizar comportamiento en caso de fallos de sector en lugar de fallos de discos.
-% subsubsection FAULTY (end)
-
-
-
-
-\subsection{Construcción y uso de un array RAID-1}
-
-
-
-Crear particiones en ambos discos, tipo fd (Linux RAID autodetect)
+\subsection{Loop devices}
 \begin{lstlisting}
-fdisk /dev/sdb; fdisk /dev/sdc
+$ dd if=/dev/zero of=imagen.img bs=1024 count=1024
+1024+0 records in
+1024+0 records out
+1048576 bytes (1.0 MB) copied, 0.00223564 s, 469 MB/s
+$ ls -l imagen.img
+-rw-r--r-- 1 root root 1048576 Sep  1 11:54 imagen.img
+$ losetup /dev/loop0 imagen.img
+$ losetup -a
+/dev/loop0: [0808]:2260385 (/tmp/imagen.img)
+$ mkfs -t ext3 /dev/loop0
+mke2fs 1.42.8 (20-Jun-2013)
+
+Filesystem too small for a journal
+Discarding device blocks:          done                            
+Filesystem label=
+OS type: Linux
+Block size=1024 (log=0)
+Fragment size=1024 (log=0)
+Stride=0 blocks, Stripe width=0 blocks
+128 inodes, 1024 blocks
+51 blocks (4.98%) reserved for the super user
+First data block=1
+Maximum filesystem blocks=1048576
+1 block group
+8192 blocks per group, 8192 fragments per group
+128 inodes per group
+
+Allocating group tables: 0/1	done                            
+Writing inode tables: 0/1	done                            
+Writing superblocks and filesystem accounting information: 0/1	done
+
+$ mkdir mnt
+$ mount -o loop /dev/loop0 mnt
+$ df -h mnt
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/loop0     1003K   17K  915K   2% /tmp/mnt
+$ ls -l mnt
+total 12
+drwx------ 2 root root 12288 Sep  1 11:54 lost+found
+$ ls / > mnt/lista.txt
+$ ls -l mnt
+total 13
+-rw-r--r-- 1 root root   167 Sep  1 11:54 lista.txt
+drwx------ 2 root root 12288 Sep  1 11:54 lost+found
+$ df -h mnt
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/loop0     1003K   18K  914K   2% /tmp/mnt
+$ dd if=/dev/zero of=imagen.img bs=1024 count=1024 oflag=append conv=notrunc
+1024+0 records in
+1024+0 records out
+1048576 bytes (1.0 MB) copied, 0.00206669 s, 507 MB/s
+$ ls -l imagen.img
+-rw-r--r-- 1 root root 2097152 Sep  1 11:54 imagen.img
+$ losetup -c /dev/loop0
+$ losetup -a
+/dev/loop0: [0808]:2260385 (/tmp/imagen.img)
+/dev/loop1: [0005]:5178 (/dev/loop0)
+$ umount mnt
+$ e2fsck -fp /dev/loop0
+/dev/loop0: 12/128 files (0.0% non-contiguous), 39/1024 blocks
+$ resize2fs /dev/loop0
+resize2fs 1.42.8 (20-Jun-2013)
+Resizing the filesystem on /dev/loop0 to 2048 (1k) blocks.
+The filesystem on /dev/loop0 is now 2048 blocks long.
+
+$ mount -o loop /dev/loop0 mnt
+$ df -h mnt/
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/loop0      2.0M   18K  1.9M   1% /tmp/mnt
+
 \end{lstlisting}
 
-Crear el array
-\begin{lstlisting}
-mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
-watch cat /proc/mdstat
-\end{lstlisting}
+\input{ASA-RAID}
 
-Usar el array
-\begin{lstlisting}
-mkfs -t ext3 /dev/md0
-mkdir /datos
-mount -t ext3 /dev/md0 /datos
-cp /etc/hosts /datos
-ll /datos
-\end{lstlisting}
-
-Examinar el array
-\begin{lstlisting}
-cat /proc/mdstat
-cat /proc/partitions
-mdadm --examine --brief --scan --config=partitions
-mdadm --examine /dev/sdc
-mdadm --query --detail /dev/md0
-\end{lstlisting}
-
-Crear script de alerta
-\begin{lstlisting}
-cat > /root/raidalert
-#!/bin/bash
-echo $(date) $* >> /root/alert
-^D
-chmod a+x /root/raidalert
-\end{lstlisting}
-
-Monitorear el arreglo con script de alerta
-\begin{lstlisting}
-mdadm --monitor -1 --scan --config=partitions --program=/root/raidalert
-\end{lstlisting}
-
-Crear configuración
-\begin{lstlisting}
-cat > /etc/mdadm.conf
-DEVICE=/dev/sdb1 /dev/sdc1
-ARRAY=/dev/md0 devices=/dev/sdb1,/dev/sdc1
-PROGRAM=/root/raidalert
-\end{lstlisting}
-
-Establecer tarea periódica de monitoreo
-\begin{lstlisting}
-crontab -e
-MAILTO=""
-*/2 * * * * /sbin/mdadm --monitor -1 --scan 
-\end{lstlisting}
-
-Declarar un fallo
-\begin{lstlisting}
-mdadm /dev/md0 -f /dev/sdb1
-cat /root/alert
-\end{lstlisting}
-
-Quitar un disco del array
-\begin{lstlisting}
-mdadm /dev/md0 -r /dev/sdb1 
-cat /root/alert
-\end{lstlisting}
-
-Reincorporar el disco al array
-\begin{lstlisting}
-mdadm /dev/md0 -a /dev/sdb1 
-cat /proc/mdstat
-cat /root/alert
-\end{lstlisting}
-
-Destruir el array
-\begin{lstlisting}
-mdadm --stop /dev/md0
-\end{lstlisting}
+\input{ASA-LVM}
 
 
-
-\section{Administración de LVM}
-\subsection{Introducción a  LVM}
-\label{sub:introLVM}
-El soporte habitual para los file systems de servidores son los discos magnéticos, particionados según un cierto diseño definido al momento de la instalación del sistema. Las particiones se definen a nivel del hardware. El conjunto de aplicaciones y servicios del sistema utiliza los filesystems que se instalan sobre estas particiones. 
-
-Las particiones de disco son un concepto de hardware, y dado que las unidades de almacenamiento se definen estáticamente al momento del particionamiento, presentan un problema de administración a la hora de modificar sus tamaños. 
-
-
-El diseño del particionamiento se prepara para distribuir adecuadamente el espacio de almacenamiento entre los diferentes destinos a los que se dedicará el sistema. Sin embargo, es frecuente que el patrón de uso del sistema vaya cambiando, y el almacenamiento se vuelva insuficiente o quede distribuido en forma inadecuada. La solución a este problema implica normalmente el reparticionamiento de los discos, operación que obliga a desmontar los filesystems y a interrumpir el servicio. Para redimensionar una partición, normalmente es necesario el reboot del equipo, con la consiguiente interrupción del servicio en producción. 
-
-
-La alternativa consiste en interponer una capa intermedia de software entre el hardware crudo, con sus particiones, y los filesystems sobre los que descansan los servicios. Esta capa intermedia está implementada por Logical Volume Manager (LVM). LVM es un subsistema orientado a flexibilizar la administración de almacenamiento, al interponer una capa de software que implementa dispositivos de bloques lógicos por encima de las particiones físicas. 
-
-Usando LVM, el almacenamiento queda estructurado en capas, y las unidades lógicas pueden crearse, redimensionarse, o destruirse, sin necesidad de reboot, desmontar ni detener el funcionamiento del sistema. Con LVM pueden definirse por software contenedores de filesystems, de límites flexibles, que admiten el redimensionamiento \quotes{en caliente}, es decir sin salir de actividad, mejorando la disponibilidad general de los servicios.
-
-Con LVM pueden agregarse unidades físicas mientras el hardware lo permita, extendiéndose dinámicamente las unidades lógicas y redistribuyendo el espacio disponible a conveniencia. Presenta también otras ventajas como la posibilidad de extraer \emph{snapshots} o instantáneas de un filesystem en funcionamiento (para obtener backups consistentes a nivel de filesystem), y manipular con precisión el mapeo a unidades físicas para aprovechar características del sistema (como \emph{striping} sobre diferentes discos).
-
-
-% subsubsection  (end)
-
-
-
-
-\subsection{Componentes de LVM}
-\label{sub:compLVM}
-En la terminología LVM, los dispositivos de bloques entregados al sistema LVM se llaman PV (physical volumes). Cualquier dispositivo de bloques puede convertirse en un PV de LVM. Esto incluye particiones de discos y dispositivos múltiples como conjuntos RAID. Los PVs se agrupan en VGs (volume groups) que funcionan como pools de almacenamiento físico. De cada pool pueden extraerse a discreción LVs (logical volumes), que se comportan nuevamente como dispositivos de bloques, y que pueden, por ejemplo, alojar filesystems. Estos serán los usuarios finales de la jerarquía (Fig. \ref{fig:jerLVM}).
-
-
-\figura{jerLVM}{Jerarquía de componentes LVM}{LVM.png}
-
-Conviene tener en mente la jerarquía de los siguientes elementos:
-
-
-\begin{itemize}
-	\item Volumen físico o PV (physical volume). Es un contenedor físico que ha sido agregado al sistema LVM. Puede ser una partición u otro dispositivo de bloques adecuado.
-	\item Grupo de volúmenes o VG (volume group). Es un pool o repositorio de espacio conformado por uno o varios PVs. Un VG ofrece un espacio de almacenamiento virtualmente continuo, cuyo tamaño corresponde aproximadamente a la suma de los PVs que lo constituyen. Los límites entre los PVs que conforman un VG son transparentes.
-	\item Volumen lógico o LV (logical volume). Es una zona de un VG que ha sido delimitada para ser usada por otro software, como por ejemplo un filesystem. Los tamaños de los LVs dentro de un VG no necesariamente coinciden con los de los PVs que los soportan.
-\end{itemize}
-
-\subsubsection {Uso de LVM}
-Los pasos lógicos para utilizar almacenamiento bajo LVM son: 
-\begin{itemize}
-	\item Crear uno o más PVs a partir de particiones u otros dispositivos.
-	\item Reunir los PVs en un VG con lo cual sus límites virtualmente desaparecen.
-	\item Particionar lógicamente el VG en uno o más LVs y utilizarlos como normalmente se usan las particiones.
-\end{itemize}
-
-El sistema LVM incluye comandos para realizar estas tareas y en general administrar todas estas unidades. Con ellos se puede, dinámicamente, agregar unidades de almacenamiento al sistema, quitarlas, redimensionarlas, etc. Los comandos tienen nombres con los prefijos \lstinline$pv$, \lstinline$vg$, \lstinline$lv$, etc. Además, el comando \lstinline$lvm$ ofrece una consola donde se pueden dar esos comandos y pedir ayuda.
-% subsubsection  (end)
-
-\subsection{Redimensionamiento de volúmenes}
-\label{sub:redimVol}
-Una vez creado un LV, su capacidad puede ser reducida o aumentada (siempre que exista espacio extra en el VG que lo contiene). 
-Si el LV redimensionado contuviera un filesystem, éste también debe ser redimensionado en forma acorde. 
-\begin{itemize}
-	\item Si un filesystem va a ser extendido, primero debe extenderse el LV que lo contiene. 
-	\item Si un filesystem va a ser reducido, luego debe reducirse el LV que lo contiene. 
-	\item Si un LV que va a ser reducido está ocupado en un porcentaje, la reducción del LV sólo puede llevarse a cabo en forma segura en dicho porcentaje. 
-
-\end{itemize}
-Los filesystems ext3 y ext4 cuentan con una herramienta, \lstinline$resize2fs$, que es capaz de redimensionarlos sin detener la operación.
-
-\subsection{Snapshots y backups}
-\label{sub:snapshots}
-
-Un snapshot es un LV virtual, especialmente preparado, asociado a un LV original cuyo estado se necesita \quotes{congelar} para cualquier propósito de mantenimiento. Una vez creado el snapshot, mediante un mecanismo de \emph{copy-on-write}, LVM provee una instantánea o vista inmutable (el snapshot) del filesystem original aunque éste se actualice. Una vez creado el LV virtual de snapshot, sus contenidos son estáticos y permanentemente iguales al LV original. Puede ser montado y usado como un filesystem corriente. El snapshot es temporario y una vez utilizado se descarta. 
-
-La motivación principal del mecanismo de snapshots es la extracción de copias de respaldo. Durante la operación del sistema, el filesystem pasa por una sucesión de estados. Una operación de backup concurrente con la actividad del filesystem no garantiza la consistencia de la imagen obtenida, ya que  archivos diferentes pueden ser copiados en diferentes momentos, bajo diferentes estados del filesystem; y esto puede dar lugar a problemas al momento de la recuperación del backup. Una solución consiste en \quotes{congelar} de alguna forma el estado del filesystem durante la operación de copia, y aquí se puede utilizar el mecanismo de snapshots de LVM. Lo que nos da LVM es la posibilidad de obtener esta instantánea sin detener la operación del LV original, o sea sin afectar la disponibilidad del servicio. La operación con el filesystem del LV origen (LVO) no se interrumpe ni modifica en nada la conducta de las aplicaciones que lo estén usando. 
-
-Para la creación de un snapshot de un LVO se necesita contar con espacio extra disponible dentro del mismo VG al cual pertenece el LVO. Este espacio extra no necesita ser del mismo tamaño que el LVO. Sin embargo, no es fácil determinar con precisión este tamaño, ya que debe ser suficiente para contener todos los bloques modificados en el LVO durante el tiempo en que se use el snapshot; este conjunto puede ser variable, dependiendo del patrón de uso del LVO y del medio hacia el cual se pretende hacer el backup (otro disco local, un servidor en la red local, un servidor en una red remota, una unidad de cinta, tienen diferente ancho de banda y tienen diferente demora de grabación).  Normalmente es suficiente un 15\% a 20\% del tamaño del LV original. Si el VG no tiene suficiente espacio, puede extenderse.
-
-\subsubsection{Creación de snapshots}
-\label{ssub:snapcreate}
-
-% subsubsection  (end)
-Crear un snapshot es preparar un nuevo LV, virtual, con un filesystem virtualmente propio, que se monta en un punto de montado diferente del original (Fig. \ref{fig:snap1}). 
-
-\figura[8]{snap1}{Un LVO y su snapshot}{LVM-snapshot-1.jpg}
- 
-\subsubsection{Lectura y escritura del LVO}
-\label{ssub:lvorw}
-Los snapshots son creados tomando un espacio de bloques de datos (la tabla de excepciones) dentro del mismo VG del LVO. Mientras un bloque no sea modificado, las operaciones de lectura lo recuperarán del LVO. Cada vez que se modifique un bloque del LVO, la versión original, sin modificar, de dicho bloque, se copia en el snapshot (Fig. \ref{fig:snap2}). 
-
-\figura[8]{snap2}{Escritura de un bloque del LVO}{LVM-snapshot-2.jpg}
- 
-\subsubsection{Lectura y escritura del snapshot}
-\label{ssub:snaprw}
-De esta manera, el snapshot muestra siempre los contenidos originales del LVO (Fig. \ref{fig:snap3}) salvo que se modifiquen en el snapshot.
-
-\figura[8]{snap3}{Lectura de un bloque desde el snapshot}{LVM-snapshot-3.jpg}
-
-Los LVs pueden declararse R/O o R/W. En LVM2, los snapshots son R/W por defecto.  Al escribir sobre un filesystem de un LV snapshot R/W, se grabará el bloque modificado en el espacio privado del snapshot sin afectar el LVO(Fig. \ref{fig:snap4}). 
-
-\figura[8]{snap4}{Escritura sobre el snapshot}{LVM-snapshot-4.jpg}
-
-\subsubsection{Eliminación del snapshot}
-\label{ssub:snapdel}
-Al eliminar el snapshot, todas las modificaciones al mismo desaparecen, simulando un \emph{roll-back} al estado original. De esta manera, los snapshots R/W ofrecen la posibilidad de efectuar pruebas de instalación, etc., temporarias sin afectar el filesystem origen. 
-
-El snapshot debe ser destruido al finalizar el backup o terminal de usarlo, ya que, al obligar a  copiar  cada bloque del LVO que se modifica, representa un  costo en performance del sistema de I/O.
-
-% subsubsection  (end)
-
-\subsection{Ejemplos LVM}
-\label{sub:ejemplosLVM}
-
-Creación de Physical Volumes (PV)
-\begin{lstlisting}
-fdisk /dev/sdb
-pvcreate /dev/sdb1 /dev/sdb2
-pvdisplay
-\end{lstlisting}
-
-Creación de Volume Groups (VG)
-\begin{lstlisting}
-vgcreate vg0 /dev/sdb1 /dev/sdb2
-vgdisplay
-\end{lstlisting}
-
-Creación de Logical Volumes (LV)
-\begin{lstlisting}
-lvcreate --size 512M vg0
-lvdisplay
-\end{lstlisting}
-
-Examinar LVM
-\begin{lstlisting}
-pvs
-vgs
-lvs
-pvscan
-vgscan
-lvscan
-\end{lstlisting}
-
-Uso de volúmenes
-\begin{lstlisting}
-mkfs -t ext3 /dev/vg0/lvol0
-mkdir volumen
-mount /dev/vg0/lvol0 volumen
-cp *.gz volumen
-ls -l volumen
-\end{lstlisting}
-
-Extensión de un volumen
-\begin{lstlisting}
-umount /dev/vg0/lvol0
-lvextend --size +1G vg0/lvol0
-mount /dev/vg0/lvol0 volumen
-resize2fs /dev/vg0/lvol0 
-\end{lstlisting}
-
-Agregar un disco al sistema
-\begin{lstlisting}
-fdisk /dev/hdd
-pvcreate /dev/hdd1
-vgextend vg0 /dev/hdd1
-lvextend --size +1G vg0/lvol0 
-ext2online /dev/vg0/lvol0 
-\end{lstlisting}
-
-Snapshot de un volumen
-\begin{lstlisting}
-modprobe dm-snapshot
-lvcreate -s -n snap --size 100M vg0/lvol0
-ls -l /dev/vg0
-mkdir volumen-snap
-mount /dev/vg0/snap volumen-snap
-ls -l volumen-snap/
-rm volumen/archivo1.tar.gz volumen/archivo2.tar.gz
-ls -l volumen-snap/
-\end{lstlisting}
-
-Destruir un snapshot
-\begin{lstlisting}
-lvremove vg0/snap
-\end{lstlisting}
-% subsubsection Ejemplos LVM (end)
-
-\subsection{Temas de práctica}
-\begin{enumerate}
-	\item Crear una partición, convertirla en PV, crear un VG y definir un LV \lstinline{lv0} dentro del mismo dejando un 25% del espacio libre. Crear un filesystem sobre el LV, montarlo y utilizarlo para administrar archivos.
-	\item Definir un nuevo LV \lstinline{lv1} en el mismo VG creado anteriormente, ocupando la totalidad del espacio del VG.
-	\item Crear otra partición en el mismo u otro medio de almacenamiento, convertirla en PV y adjuntarla al VG del ejercicio anterior. Examinar el resultado de las operaciones con los comandos de revisión correspondientes. 
-	\item Extender el LV \lstinline{lv1} para ocupar nuevamente la totalidad del espacio del VG extendido. Crear un filesystem sobre el LV, montarlo y utilizarlo para administrar archivos.
-	\item Modificar los tamaños de ambos LVs, extendiendo uno y reduciendo el otro. Recordar que al reducir un LV se debe primero reducir el filesystem alojado, y que para extender un filesystem se debe primero extender el LV que lo aloja. Comprobar que los filesystems alojados siguen siendo funcionales.
-\end{enumerate}
