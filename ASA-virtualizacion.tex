@@ -1,97 +1,221 @@
 
+% 
+% 
+% 	\item ¿Hay diferencia teórica de performance entre un dispositivo RAID linear y un RAID nivel 0? ¿Puede observarla experimentalmente? ¿Tiene sentido esta medición cuando el equipo es una máquina virtual? 
+% 	\item Si un administrador está preparando una máquina virtual para funcionar como estación de trabajo, ¿en qué casos le recomendaría el uso de RAID nivel 1 sobre discos virtuales?
+% 
+% Mecanismo para dividir los recursos en ambientes de ejecución aislados e independientes.
+% 
+\section{Formas de virtualización}
+\begin{itemize}
+	\item \emph{Hosts} o Anfitriones
+	\item \emph{Guests} o Huéspedes
+	\item Virtualización completa o Emulación
+ 	\begin{itemize}
+ 		\item VMWare, QEMU, KVM
+ 	\end{itemize}
+% 	\item Virtualización
+%  	\begin{itemize}
+%  		\item Hypervisor o monitor de VM
+%  	\end{itemize}
+  	\item Paravirtualización
+	\begin{itemize}
+ 		\item  		Ejecuta un SO modificado
+		\item 		Xen, UML, VirtualBox en modo software
+	\end{itemize}
+		\item Virtualización a nivel del SO
+	\begin{itemize}
+		\item 	VServer, OpenVZ
+	\end{itemize}
+\end{itemize}
 
 
-	\item ¿Hay diferencia teórica de performance entre un dispositivo RAID linear y un RAID nivel 0? ¿Puede observarla experimentalmente? ¿Tiene sentido esta medición cuando el equipo es una máquina virtual? 
-	\item Si un administrador está preparando una máquina virtual para funcionar como estación de trabajo, ¿en qué casos le recomendaría el uso de RAID nivel 1 sobre discos virtuales?
+\subsection {Dominios o anillos de protección}
+
+\figura[7]{rings1}{Anillos de protección, normalmente 1 y 2 sin uso}{rings-1.jpg}
+\figura[7]{rings2}{Hipervisor de tipo 1 y sistema guest}{rings-2.jpg}
+
+\begin{itemize}
+	\item Orden de privilegios impuesto por el hardware
+		\begin{itemize}
+		\item Kernel, anillo 0
+		\item Drivers, anillos 1 y 2		
+		\item Aplicaciones, procesos de usuario, anillo 3
+	\end{itemize}
+	\item Posibilita el mecanismo de los system calls
+	\begin{itemize}
+	\item El código que se ejecuta en un anillo más exterior no puede ejecutar instrucciones de los anillos más interiores ni acceder a memoria no asignada 
+	\item El salto a los anillos más interiores se hace por puntos de acceso predefinidos (las llamadas al sistema)	
+	\item Normalmente los kernels monolíticos corren en modo supervisor o kernel anillo 0, y las aplicaciones en modo usuario en el anillo 3
+	\end{itemize}
+	\item Hardware de hipervisor (VTx, AMD-V)
+	\begin{itemize}
+		\item Característica de algunos procesadores desde 2005
+		\item Crea un anillo modo 1 donde ejecutar el código privilegiado de las máquinas virtuales
+	\end{itemize}
+	\item Hipervisor
+	\begin{itemize}
+		\item Tipo 1
+		\begin{itemize}
+			\item Corre directamente sobre el hardware (Bare Metal)
+			\item XenServer, VMware ESX/ESXi, Hyper-V, Oracle VM Server
+		\end{itemize}		
+		\item Tipo 2
+		\begin{itemize}
+			\item Corre sobre un sistema operativo dado
+			\item VMware Workstation, VirtualBox, KVM
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\section{Aplicaciones} 
+\begin{itemize}
+	\item Para el usuario final
+	\begin{itemize}
+		\item Revolución del multicore
+			\begin{itemize}
+				\item Muchos equipos en uno
+			\end{itemize}
+		\item Sistemas \textit{legacy}
+		\item Probar nuevas distribuciones u otro software
+		\item Probar actualizaciones
+	\end{itemize}
+	\item Para el administrador de sistemas
+	\begin{itemize}
+		\item Independencia del hardware
+		\item \textit{Provisioning}
+		\item \textit{Live Migration} para balance de carga
+		\item Hosting de servicios
+		\item Consolidación de servidores
+		\begin{itemize}
+			\item Menos espacio
+			\item Menos consumo
+			\item Menos calor
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+
+\section{Proxmox}
+
+\begin{itemize}
+	\item PVE - Proxmox Virtual Environment
+	\item Infraestructura para administración de recursos de virtualización
+	\item Virtualización 
+	\begin{itemize}
+		\item KVM
+		\begin{itemize}
+			\item Incorporado al kernel Linux
+			\item Soporta múltiples SOs
+			\item Almacenamiento en archivos o volúmenes
+			\item Raw o QCOW2
+			\item Compatible con otros SO pero costoso en CPU  
+		\end{itemize}		
+		\item Consolas de acceso a VMs
+		\begin{itemize}
+			\item SSH
+			\item VNC
+			\item QXL/Spice
+			\item HTML5
+		\end{itemize}
+	\end{itemize}	
+	\item Containers
+	\begin{itemize}
+		\item 	OpenVZ
+		\begin{itemize}
+		\item Mismo kernel que el host
+		\item Cada contenedor tiene sus propios archivos, bibliotecas, aplicaciones, /proc, /sys, locks, usuarios, grupos, árbol de procesos, red, dispositivos, instancias de IPC
+		\item Puede dárseles acceso a dispositivos reales
+		\item Soporta únicamente Linux
+		\item Almacenamiento en directorio del host	
+		\item Mejor performance
+		\item Turnkey Linux aporta \textit{appliances}
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
 
 
 
-Los equipos de computación para usuarios finales serán cada vez más
-poderosos. La virtualización puede ser una forma de obtener aún mayor
-rendimiento de estos equipos, convirtiéndolos en el equivalente de
-varias máquinas a la vez. La charla muestra qué son y para qué sirven
-las máquinas virtuales y muestra algunas formas de virtualización, con
-sus diferentes alcances, requerimientos y características.
-Temario
-* Conceptos
-	* Sistemas Operativos
-		* Kernel, hardware y drivers de dispositivos
-		* Virtualización de dispositivos
-			* Descubrimiento de dispositivos
-				* PCI
-			* Control de dispositivos
-				* Iniciar operaciones
-			* Transferencias de datos 
-				* Dispositivo<->memoria
-				* DMA
-			* Control de Interrupciones
-				* Capacidad de notificar al sw de eventos
-		* Ejemplos de Virtualización
-			* RAM Disk
-			* RAID
-			* VPN
-			* VFS
-	* VMM (Virtual Machine Monitor)
-		* VMM Tipo 1 (nativo): corre directamente sobre hardware físico 
-		* VMM Tipo 2 (hosted): corre como proceso del SO y ofrece un anillo 0 simulado a las MV
-		* De procesos o de aplicación (Java VM)
-		* De sistema (VMWare)
-	* Virtualización de dispositivos
-		* CPU
-		* E/S
-		* Discos
-		* Redes
-	* Protección y virtualización
-	* Máquinas virtuales
-		* Guests y Hosts
-	* Ejemplos
-		* Propietarios
-			* :osobox:old:zim:Público:Software Libre:VmWare
-			* :osobox:old:zim:Público:Software Libre:VirtualPC
-			* Virtuozzo
-		* GPL
-			* :osobox:old:zim:Público:Software Libre:VirtualBox
-			* QEMU
-			* Xen
-			* KVM
-		* Otros
-			* WINE
-			* Colinux
-			* UML
-			* :osobox:old:zim:Público:Software Libre:OpenVZ
-			* Vserver
-			* LHC
-* Aplicaciones para el usuario final
-	* Revolución del multicore
-		* Muchos equipos en uno
-	* Sistemas legacy
-	* Probar nuevas distribuciones u otro software
-	* Probar actualizaciones
-* Aplicaciones para el administrador de sistemas
-	* Independencia del hardware
-	* Provisioning
-	* Live Migration para balance de carga
-	* Hosting de servicios
-	* Consolidación en el server room
-		* Menos espacio
-		* Menos consumo
-		* Menos calor
-* Clases de virtualización
-	* Emulación 
-	* Paravirtualización
-	* Virtualización asistida por hardware
-* Ejemplos
-	* QEMU
-		* Emulación
-		* Módulo acelerador
-	* Xen
-		* Hypervisor
-		* Para/Full Virt
-		* Red default bridge
-	* KVM
-		* Full Virt
-		* Red default, NAT
-* Tendencias
-	* Hardware cada vez más orientado a virtualización
-	* Multicore/manycore
-	* VMM monolítico con apoyo del hardware
+\figura{proxmox}{Cliente web de Proxmox}{pve01.png}
+
+\subsection{Línea de comandos}
+
+
+\tabla {pveadmtools}{Herramientas de administración Proxmox}{l|c}
+{
+Utilizar API & pvesh \\
+Estudiar performance & pveperf \\
+Administrar el cluster de PVEs & pvecm  \\
+Administrar contenedores OpenVZ & vzctl \\
+Administrar VMs & qm \\
+Administrar templates & pveam \\
+}
+
+Comando qm
+	\begin{lstlisting}
+	qm start <vmID>			start vm
+	qm stop <vmID>			kill vm (immediate stop)
+	qm shutdown <vmID>		gracefully stop vm (send poweroff)
+	qm reboot <vmID>		reboot vm (shutdown, start)
+	qm reset <vmID>			reset vm (stop, start)
+	qm suspend <vmID>		suspend vm
+	qm resume <vmID>		resume vm
+	qm destroy <vmID>		destroy vm (delete all files)
+	qm startall			start all virtual machines
+	qm stopall [timeout]		stop all virtual machines
+	\end{lstlisting}
+
+Script para agregar discos
+	\begin{lstlisting}
+	#!/bin/bash
+
+	for ((m=501; m<=510; m+=1))
+	do
+		for d in 1 2; do qm set $m -sata$d volume=OSO-LABS:32; done
+		qm config $m
+	done
+	\end{lstlisting}
+
+
+
+		
+\begin{lstlisting}
+	root@pvetest:~# qm config 501
+	balloon: 512
+	bootdisk: ide0
+	cores: 1
+	description: TUASSL-asa010%0A
+	ide0: OSO-LABS:601/base-601-disk-1.qcow2/501/vm-501 disk-2.qcow2,format=qcow2,size=64G
+	ide2: OSO-LABS:iso/CentOS-6.5-x86_64-minimal.iso,media=cdrom
+	memory: 1024
+	name: asa010
+	net0: e1000=6E:AF:21:76:AA:0A,bridge=vmbr2
+	ostype: l26
+	sata1: OSO-LABS:501/vm-501-disk-3.raw,format=raw,size=32G
+	sata2: OSO-LABS:501/vm-501-disk-4.raw,format=raw,size=32G
+	sockets: 1
+	vga: qxl	
+\end{lstlisting}
+
+\subsection{Otras características}
+	\begin{itemize}
+	\item Almacenamiento local o de red iSCSI, NFS, etc
+		\item 	Importación/exportación a VMWare
+		\item Cliente Web, login Linux/PVE
+		\item Cluster
+\begin{itemize}
+ 		\item  	Simétrico, sin nodo central de administración 
+		\item Cluster File System
+
+ 	\end{itemize}		\item Backup + Restore
+		\begin{itemize}
+		 		\item  	Scheduling, compresión, Live Snapshots
+	\item Migración en vivo
+		 	\end{itemize}
+	\item Administración de recursos
+\begin{itemize}
+ 	\item  Pools de almacenamiento asignables a usuarios
+ \end{itemize}
+	\end{itemize}
+
+

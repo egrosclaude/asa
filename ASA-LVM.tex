@@ -232,7 +232,7 @@ El resultado, para el LVO, será completamente diferente en uno y otro caso. Amb
 	\item Ejecutar las operaciones críticas (instalar, actualizar, modificar) sobre el LVO.
 	\item Verificar el resultado.
 	\begin{itemize}
-		\item Si el resultado fue satisfactorio, destruir el snapshot con \lstinline$lvremove <ID del snapshot>$. 
+		\item Si el resultado fue satisfactorio, destruir el snapshot con \lstinline$lvremove <ID snapshot>$. 
 		\item Si el resultado no fue satisfactorio, recuperar el estado original del LVO con el comando \lstinline$lvconvert --merge <ID del snapshot>$.
 	\end{itemize}
 	\item El snapshot ha sido eliminado.

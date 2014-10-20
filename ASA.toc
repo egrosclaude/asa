@@ -1,0 +1,88 @@
+\select@language {spanish}
+\contentsline {part}{I\hspace {1em}La asignatura}{7}{part.1}
+\contentsline {section}{\numberline {1}Objetivos}{7}{section.1.1}
+\contentsline {subsection}{De la carrera}{7}{section*.2}
+\contentsline {subsection}{De la asignatura}{7}{section*.3}
+\contentsline {section}{\numberline {2}Cursado}{7}{section.1.2}
+\contentsline {section}{\numberline {3}Contenidos}{7}{section.1.3}
+\contentsline {subsection}{Contenidos m\IeC {\'\i }nimos}{7}{section*.4}
+\contentsline {subsection}{Programa}{8}{section*.5}
+\contentsline {section}{\numberline {4}Bibliograf\IeC {\'\i }a inicial}{8}{section.1.4}
+\contentsline {section}{\numberline {5}Cronograma}{9}{section.1.5}
+\contentsline {part}{II\hspace {1em}Scripting Avanzado}{10}{part.2}
+\contentsline {section}{\numberline {1}Contenidos}{10}{section.2.1}
+\contentsline {section}{\numberline {2}Ejercitaci\IeC {\'o}n b\IeC {\'a}sica}{10}{section.2.2}
+\contentsline {subsection}{Redirecci\IeC {\'o}n y piping}{10}{section*.6}
+\contentsline {subsection}{Variables, ambiente}{10}{section*.7}
+\contentsline {subsection}{Sentencias de control}{10}{section*.8}
+\contentsline {subsection}{Aritm\IeC {\'e}tica}{11}{section*.9}
+\contentsline {subsection}{Arreglos}{12}{section*.10}
+\contentsline {subsection}{Arreglos asociativos}{12}{section*.11}
+\contentsline {subsection}{Here-Documents}{12}{section*.12}
+\contentsline {subsection}{Traps}{12}{section*.13}
+\contentsline {section}{\numberline {3}Casos de uso}{13}{section.2.3}
+\contentsline {subsection}{Investigar el sistema}{13}{section*.14}
+\contentsline {subsection}{Recuperar espacio de almacenamiento}{13}{section*.15}
+\contentsline {subsection}{Networking}{13}{section*.16}
+\contentsline {subsection}{Seguridad}{13}{section*.17}
+\contentsline {subsection}{Tratamiento de datos}{13}{section*.18}
+\contentsline {subsection}{Accesibilidad para usuarios finales}{14}{section*.19}
+\contentsline {part}{III\hspace {1em}Configuraciones de Almacenamiento}{15}{part.3}
+\contentsline {section}{\numberline {1}Contenidos}{15}{section.3.1}
+\contentsline {section}{\numberline {2}Dispositivos y filesystems}{15}{section.3.2}
+\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{16}{section*.21}
+\contentsline {subsection}{Loop devices}{16}{section*.22}
+\contentsline {section}{\numberline {3}RAID}{17}{section.3.3}
+\contentsline {subsection}{Niveles RAID}{18}{section*.23}
+\contentsline {subsection}{Modos de operaci\IeC {\'o}n}{18}{section*.24}
+\contentsline {subsection}{Construcci\IeC {\'o}n y uso de un array RAID-1}{19}{section*.25}
+\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{20}{section*.26}
+\contentsline {section}{\numberline {4}Administraci\IeC {\'o}n de LVM}{21}{section.3.4}
+\contentsline {subsection}{Introducci\IeC {\'o}n a LVM}{21}{section*.27}
+\contentsline {subsection}{Componentes de LVM}{21}{section*.28}
+\contentsline {subsection}{Uso de LVM}{22}{section*.30}
+\contentsline {subsection}{Redimensionamiento de vol\IeC {\'u}menes}{23}{section*.31}
+\contentsline {subsubsection}{Redimensionamiento autom\IeC {\'a}tico}{23}{section*.32}
+\contentsline {subsubsection}{Indicaci\IeC {\'o}n del nuevo tama\IeC {\~n}o}{23}{section*.33}
+\contentsline {subsubsection}{Bytes y extents}{24}{section*.35}
+\contentsline {subsection}{Snapshots y backups}{24}{section*.37}
+\contentsline {subsubsection}{Dimensionamiento del snapshot}{25}{section*.38}
+\contentsline {subsubsection}{Creaci\IeC {\'o}n de snapshots}{25}{section*.39}
+\contentsline {subsubsection}{Lectura y escritura del LVO}{25}{section*.41}
+\contentsline {subsubsection}{Lectura y escritura del snapshot}{25}{section*.43}
+\contentsline {subsection}{Creaci\IeC {\'o}n de backups con snapshots}{25}{section*.46}
+\contentsline {subsection}{Uso preventivo de snapshots}{27}{section*.47}
+\contentsline {subsubsection}{Reversi\IeC {\'o}n de snapshots}{27}{section*.48}
+\contentsline {subsection}{Eliminaci\IeC {\'o}n del snapshot}{28}{section*.49}
+\contentsline {subsection}{Ejemplos LVM}{28}{section*.50}
+\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{29}{section*.51}
+\contentsline {section}{\numberline {5}SMART}{30}{section.3.5}
+\contentsline {subsection}{Atributos}{30}{section*.52}
+\contentsline {subsection}{Diagn\IeC {\'o}sticos}{30}{section*.53}
+\contentsline {subsection}{Tests}{31}{section*.55}
+\contentsline {subsection}{Paquete smartmontools}{31}{section*.56}
+\contentsline {part}{IV\hspace {1em}Estrategias de Respaldo}{32}{part.4}
+\contentsline {section}{\numberline {1}Decisiones sobre los respaldos}{32}{section.4.1}
+\contentsline {section}{\numberline {2}Sincronizaci\IeC {\'o}n de archivos}{32}{section.4.2}
+\contentsline {subsection}{Herramienta rsync}{32}{section*.57}
+\contentsline {subsubsection}{Especificaci\IeC {\'o}n del origen}{33}{section*.58}
+\contentsline {subsubsection}{Modo backup}{34}{section*.59}
+\contentsline {section}{\numberline {3}Replicaci\IeC {\'o}n de datos}{34}{section.4.3}
+\contentsline {subsection}{Replicaci\IeC {\'o}n con rsync}{35}{section*.60}
+\contentsline {subsubsection}{Modo \emph {dry-run}}{35}{section*.61}
+\contentsline {subsection}{Replicaci\IeC {\'o}n de particiones}{35}{section*.62}
+\contentsline {subsubsection}{Comando dd}{35}{section*.63}
+\contentsline {subsubsection}{Comando partimage}{35}{section*.64}
+\contentsline {subsubsection}{Comando netcat}{36}{section*.65}
+\contentsline {section}{\numberline {4}Temas de pr\IeC {\'a}ctica}{36}{section.4.4}
+\contentsline {part}{V\hspace {1em}Virtualizaci\IeC {\'o}n}{38}{part.5}
+\contentsline {section}{\numberline {1}Formas de virtualizaci\IeC {\'o}n}{38}{section.5.1}
+\contentsline {subsection}{Dominios o anillos de protecci\IeC {\'o}n}{38}{section*.66}
+\contentsline {section}{\numberline {2}Aplicaciones}{39}{section.5.2}
+\contentsline {section}{\numberline {3}Proxmox}{40}{section.5.3}
+\contentsline {subsection}{L\IeC {\'\i }nea de comandos}{41}{section*.70}
+\contentsline {subsection}{Otras caracter\IeC {\'\i }sticas}{42}{section*.72}
+\contentsline {part}{VI\hspace {1em}Alta Disponibilidad}{43}{part.6}
+\contentsline {part}{VII\hspace {1em}Anexos}{44}{part.7}
+\contentsline {section}{\numberline {A}iptables.log}{44}{appendix.Alph1}
+\contentsline {section}{\numberline {B}Opciones de rsync}{46}{appendix.Alph2}
