@@ -7,81 +7,102 @@
 \BOOKMARK [2][-]{section*.4}{Contenidos m\355nimos}{section.1.3}% 7
 \BOOKMARK [2][-]{section*.5}{Programa}{section.1.3}% 8
 \BOOKMARK [1][-]{section.1.4}{Bibliograf\355a inicial}{part.1}% 9
-\BOOKMARK [1][-]{section.1.5}{Cronograma}{part.1}% 10
-\BOOKMARK [0][-]{part.2}{II Scripting Avanzado}{}% 11
-\BOOKMARK [1][-]{section.2.1}{Contenidos}{part.2}% 12
-\BOOKMARK [1][-]{section.2.2}{Ejercitaci\363n b\341sica}{part.2}% 13
-\BOOKMARK [2][-]{section*.6}{Redirecci\363n y piping}{section.2.2}% 14
-\BOOKMARK [2][-]{section*.7}{Variables, ambiente}{section.2.2}% 15
-\BOOKMARK [2][-]{section*.8}{Sentencias de control}{section.2.2}% 16
-\BOOKMARK [2][-]{section*.9}{Aritm\351tica}{section.2.2}% 17
-\BOOKMARK [2][-]{section*.10}{Arreglos}{section.2.2}% 18
-\BOOKMARK [2][-]{section*.11}{Arreglos asociativos}{section.2.2}% 19
-\BOOKMARK [2][-]{section*.12}{Here-Documents}{section.2.2}% 20
-\BOOKMARK [2][-]{section*.13}{Traps}{section.2.2}% 21
-\BOOKMARK [1][-]{section.2.3}{Casos de uso}{part.2}% 22
-\BOOKMARK [2][-]{section*.14}{Investigar el sistema}{section.2.3}% 23
-\BOOKMARK [2][-]{section*.15}{Recuperar espacio de almacenamiento}{section.2.3}% 24
-\BOOKMARK [2][-]{section*.16}{Networking}{section.2.3}% 25
-\BOOKMARK [2][-]{section*.17}{Seguridad}{section.2.3}% 26
-\BOOKMARK [2][-]{section*.18}{Tratamiento de datos}{section.2.3}% 27
-\BOOKMARK [2][-]{section*.19}{Accesibilidad para usuarios finales}{section.2.3}% 28
-\BOOKMARK [0][-]{part.3}{III Configuraciones de Almacenamiento}{}% 29
-\BOOKMARK [1][-]{section.3.1}{Contenidos}{part.3}% 30
-\BOOKMARK [1][-]{section.3.2}{Dispositivos y filesystems}{part.3}% 31
-\BOOKMARK [2][-]{section*.21}{Temas de pr\341ctica}{section.3.2}% 32
-\BOOKMARK [2][-]{section*.22}{Loop devices}{section.3.2}% 33
-\BOOKMARK [1][-]{section.3.3}{RAID}{part.3}% 34
-\BOOKMARK [2][-]{section*.23}{Niveles RAID}{section.3.3}% 35
-\BOOKMARK [2][-]{section*.24}{Modos de operaci\363n}{section.3.3}% 36
-\BOOKMARK [2][-]{section*.25}{Construcci\363n y uso de un array RAID-1}{section.3.3}% 37
-\BOOKMARK [2][-]{section*.26}{Temas de pr\341ctica}{section.3.3}% 38
-\BOOKMARK [1][-]{section.3.4}{Administraci\363n de LVM}{part.3}% 39
-\BOOKMARK [2][-]{section*.27}{Introducci\363n a LVM}{section.3.4}% 40
-\BOOKMARK [2][-]{section*.28}{Componentes de LVM}{section.3.4}% 41
-\BOOKMARK [2][-]{section*.30}{Uso de LVM}{section.3.4}% 42
-\BOOKMARK [2][-]{section*.31}{Redimensionamiento de vol\372menes}{section.3.4}% 43
-\BOOKMARK [3][-]{section*.32}{Redimensionamiento autom\341tico}{section*.31}% 44
-\BOOKMARK [3][-]{section*.33}{Indicaci\363n del nuevo tama\361o}{section*.31}% 45
-\BOOKMARK [3][-]{section*.35}{Bytes y extents}{section*.31}% 46
-\BOOKMARK [2][-]{section*.37}{Snapshots y backups}{section.3.4}% 47
-\BOOKMARK [3][-]{section*.38}{Dimensionamiento del snapshot}{section*.37}% 48
-\BOOKMARK [3][-]{section*.39}{Creaci\363n de snapshots}{section*.37}% 49
-\BOOKMARK [3][-]{section*.41}{Lectura y escritura del LVO}{section*.37}% 50
-\BOOKMARK [3][-]{section*.43}{Lectura y escritura del snapshot}{section*.37}% 51
-\BOOKMARK [2][-]{section*.46}{Creaci\363n de backups con snapshots}{section.3.4}% 52
-\BOOKMARK [2][-]{section*.47}{Uso preventivo de snapshots}{section.3.4}% 53
-\BOOKMARK [3][-]{section*.48}{Reversi\363n de snapshots}{section*.47}% 54
-\BOOKMARK [2][-]{section*.49}{Eliminaci\363n del snapshot}{section.3.4}% 55
-\BOOKMARK [2][-]{section*.50}{Ejemplos LVM}{section.3.4}% 56
-\BOOKMARK [2][-]{section*.51}{Temas de pr\341ctica}{section.3.4}% 57
-\BOOKMARK [1][-]{section.3.5}{SMART}{part.3}% 58
-\BOOKMARK [2][-]{section*.52}{Atributos}{section.3.5}% 59
-\BOOKMARK [2][-]{section*.53}{Diagn\363sticos}{section.3.5}% 60
-\BOOKMARK [2][-]{section*.55}{Tests}{section.3.5}% 61
-\BOOKMARK [2][-]{section*.56}{Paquete smartmontools}{section.3.5}% 62
-\BOOKMARK [0][-]{part.4}{IV Estrategias de Respaldo}{}% 63
-\BOOKMARK [1][-]{section.4.1}{Decisiones sobre los respaldos}{part.4}% 64
-\BOOKMARK [1][-]{section.4.2}{Sincronizaci\363n de archivos}{part.4}% 65
-\BOOKMARK [2][-]{section*.57}{Herramienta rsync}{section.4.2}% 66
-\BOOKMARK [3][-]{section*.58}{Especificaci\363n del origen}{section*.57}% 67
-\BOOKMARK [3][-]{section*.59}{Modo backup}{section*.57}% 68
-\BOOKMARK [1][-]{section.4.3}{Replicaci\363n de datos}{part.4}% 69
-\BOOKMARK [2][-]{section*.60}{Replicaci\363n con rsync}{section.4.3}% 70
-\BOOKMARK [3][-]{section*.61}{Modo dry-run}{section*.60}% 71
-\BOOKMARK [2][-]{section*.62}{Replicaci\363n de particiones}{section.4.3}% 72
-\BOOKMARK [3][-]{section*.63}{Comando dd}{section*.62}% 73
-\BOOKMARK [3][-]{section*.64}{Comando partimage}{section*.62}% 74
-\BOOKMARK [3][-]{section*.65}{Comando netcat}{section*.62}% 75
-\BOOKMARK [1][-]{section.4.4}{Temas de pr\341ctica}{part.4}% 76
-\BOOKMARK [0][-]{part.5}{V Virtualizaci\363n}{}% 77
-\BOOKMARK [1][-]{section.5.1}{Formas de virtualizaci\363n}{part.5}% 78
-\BOOKMARK [2][-]{section*.66}{Dominios o anillos de protecci\363n}{section.5.1}% 79
-\BOOKMARK [1][-]{section.5.2}{Aplicaciones}{part.5}% 80
-\BOOKMARK [1][-]{section.5.3}{Proxmox}{part.5}% 81
-\BOOKMARK [2][-]{section*.70}{L\355nea de comandos}{section.5.3}% 82
-\BOOKMARK [2][-]{section*.72}{Otras caracter\355sticas}{section.5.3}% 83
-\BOOKMARK [0][-]{part.6}{VI Alta Disponibilidad}{}% 84
-\BOOKMARK [0][-]{part.7}{VII Anexos}{}% 85
-\BOOKMARK [1][-]{appendix.Alph1}{iptables.log}{part.7}% 86
-\BOOKMARK [1][-]{appendix.Alph2}{Opciones de rsync}{part.7}% 87
+\BOOKMARK [2][-]{section*.6}{Biblioteca Virtual del MinCyT}{section.1.4}% 10
+\BOOKMARK [1][-]{section.1.5}{Cronograma}{part.1}% 11
+\BOOKMARK [0][-]{part.2}{II Scripting Avanzado}{}% 12
+\BOOKMARK [1][-]{section.2.1}{Contenidos}{part.2}% 13
+\BOOKMARK [1][-]{section.2.2}{Ejercitaci\363n b\341sica}{part.2}% 14
+\BOOKMARK [2][-]{section*.7}{Redirecci\363n y piping}{section.2.2}% 15
+\BOOKMARK [2][-]{section*.8}{Variables, ambiente}{section.2.2}% 16
+\BOOKMARK [2][-]{section*.9}{Sentencias de control}{section.2.2}% 17
+\BOOKMARK [2][-]{section*.10}{Aritm\351tica}{section.2.2}% 18
+\BOOKMARK [2][-]{section*.11}{Arreglos}{section.2.2}% 19
+\BOOKMARK [2][-]{section*.12}{Arreglos asociativos}{section.2.2}% 20
+\BOOKMARK [2][-]{section*.13}{Here-Documents}{section.2.2}% 21
+\BOOKMARK [2][-]{section*.14}{Traps}{section.2.2}% 22
+\BOOKMARK [1][-]{section.2.3}{Casos de uso}{part.2}% 23
+\BOOKMARK [2][-]{section*.15}{Investigar el sistema}{section.2.3}% 24
+\BOOKMARK [2][-]{section*.16}{Recuperar espacio de almacenamiento}{section.2.3}% 25
+\BOOKMARK [2][-]{section*.17}{Networking}{section.2.3}% 26
+\BOOKMARK [2][-]{section*.18}{Seguridad}{section.2.3}% 27
+\BOOKMARK [2][-]{section*.19}{Tratamiento de datos}{section.2.3}% 28
+\BOOKMARK [2][-]{section*.20}{Accesibilidad para usuarios finales}{section.2.3}% 29
+\BOOKMARK [0][-]{part.3}{III Configuraciones de Almacenamiento}{}% 30
+\BOOKMARK [1][-]{section.3.1}{Contenidos}{part.3}% 31
+\BOOKMARK [1][-]{section.3.2}{Dispositivos y filesystems}{part.3}% 32
+\BOOKMARK [2][-]{section*.22}{Temas de pr\341ctica}{section.3.2}% 33
+\BOOKMARK [2][-]{section*.23}{Loop devices}{section.3.2}% 34
+\BOOKMARK [1][-]{section.3.3}{RAID}{part.3}% 35
+\BOOKMARK [2][-]{section*.24}{Niveles RAID}{section.3.3}% 36
+\BOOKMARK [2][-]{section*.25}{Modos de operaci\363n}{section.3.3}% 37
+\BOOKMARK [2][-]{section*.26}{Construcci\363n y uso de un array RAID-1}{section.3.3}% 38
+\BOOKMARK [2][-]{section*.27}{Temas de pr\341ctica}{section.3.3}% 39
+\BOOKMARK [1][-]{section.3.4}{Administraci\363n de LVM}{part.3}% 40
+\BOOKMARK [2][-]{section*.28}{Introducci\363n a LVM}{section.3.4}% 41
+\BOOKMARK [2][-]{section*.29}{Componentes de LVM}{section.3.4}% 42
+\BOOKMARK [2][-]{section*.31}{Uso de LVM}{section.3.4}% 43
+\BOOKMARK [2][-]{section*.32}{Redimensionamiento de vol\372menes}{section.3.4}% 44
+\BOOKMARK [3][-]{section*.33}{Redimensionamiento autom\341tico}{section*.32}% 45
+\BOOKMARK [3][-]{section*.34}{Indicaci\363n del nuevo tama\361o}{section*.32}% 46
+\BOOKMARK [3][-]{section*.36}{Bytes y extents}{section*.32}% 47
+\BOOKMARK [2][-]{section*.38}{Snapshots y backups}{section.3.4}% 48
+\BOOKMARK [3][-]{section*.39}{Dimensionamiento del snapshot}{section*.38}% 49
+\BOOKMARK [3][-]{section*.40}{Creaci\363n de snapshots}{section*.38}% 50
+\BOOKMARK [3][-]{section*.42}{Lectura y escritura del LVO}{section*.38}% 51
+\BOOKMARK [3][-]{section*.44}{Lectura y escritura del snapshot}{section*.38}% 52
+\BOOKMARK [2][-]{section*.47}{Creaci\363n de backups con snapshots}{section.3.4}% 53
+\BOOKMARK [2][-]{section*.48}{Uso preventivo de snapshots}{section.3.4}% 54
+\BOOKMARK [3][-]{section*.49}{Reversi\363n de snapshots}{section*.48}% 55
+\BOOKMARK [2][-]{section*.50}{Eliminaci\363n del snapshot}{section.3.4}% 56
+\BOOKMARK [2][-]{section*.51}{Ejemplos LVM}{section.3.4}% 57
+\BOOKMARK [2][-]{section*.52}{Temas de pr\341ctica}{section.3.4}% 58
+\BOOKMARK [1][-]{section.3.5}{SMART}{part.3}% 59
+\BOOKMARK [2][-]{section*.53}{Atributos}{section.3.5}% 60
+\BOOKMARK [2][-]{section*.54}{Diagn\363sticos}{section.3.5}% 61
+\BOOKMARK [2][-]{section*.56}{Tests}{section.3.5}% 62
+\BOOKMARK [2][-]{section*.57}{Paquete smartmontools}{section.3.5}% 63
+\BOOKMARK [0][-]{part.4}{IV Estrategias de Respaldo}{}% 64
+\BOOKMARK [1][-]{section.4.1}{Backups}{part.4}% 65
+\BOOKMARK [2][-]{section*.58}{Decisiones sobre los respaldos}{section.4.1}% 66
+\BOOKMARK [1][-]{section.4.2}{Sincronizaci\363n de archivos}{part.4}% 67
+\BOOKMARK [2][-]{section*.59}{Herramienta rsync}{section.4.2}% 68
+\BOOKMARK [3][-]{section*.60}{Especificaci\363n del origen}{section*.59}% 69
+\BOOKMARK [3][-]{section*.61}{Modo backup}{section*.59}% 70
+\BOOKMARK [1][-]{section.4.3}{Replicaci\363n de datos}{part.4}% 71
+\BOOKMARK [2][-]{section*.62}{Replicaci\363n con rsync}{section.4.3}% 72
+\BOOKMARK [3][-]{section*.63}{Modo dry-run}{section*.62}% 73
+\BOOKMARK [2][-]{section*.64}{Replicaci\363n de particiones}{section.4.3}% 74
+\BOOKMARK [3][-]{section*.65}{Comando dd}{section*.64}% 75
+\BOOKMARK [3][-]{section*.66}{Comando partimage}{section*.64}% 76
+\BOOKMARK [3][-]{section*.67}{Comando netcat}{section*.64}% 77
+\BOOKMARK [1][-]{section.4.4}{Temas de pr\341ctica}{part.4}% 78
+\BOOKMARK [1][-]{section.4.5}{DRBD}{part.4}% 79
+\BOOKMARK [2][-]{section*.68}{Forma de operaci\363n}{section.4.5}% 80
+\BOOKMARK [2][-]{section*.69}{Recursos DRBD}{section.4.5}% 81
+\BOOKMARK [2][-]{section*.70}{Instalaci\363n de DRBD}{section.4.5}% 82
+\BOOKMARK [2][-]{section*.71}{Configuraci\363n de DRBD}{section.4.5}% 83
+\BOOKMARK [3][-]{section*.72}{Ejemplo de configuraci\363n}{section*.71}% 84
+\BOOKMARK [2][-]{section*.74}{Ejecuci\363n de DRBD}{section.4.5}% 85
+\BOOKMARK [3][-]{section*.75}{Inicializar el dispositivo}{section*.74}% 86
+\BOOKMARK [3][-]{section*.76}{Activar el recurso}{section*.74}% 87
+\BOOKMARK [3][-]{section*.77}{Establecer roles}{section*.74}% 88
+\BOOKMARK [2][-]{section*.78}{Creaci\363n de filesystems}{section.4.5}% 89
+\BOOKMARK [2][-]{section*.79}{Tuning del filesystem}{section.4.5}% 90
+\BOOKMARK [2][-]{section*.80}{Montado de los recursos}{section.4.5}% 91
+\BOOKMARK [2][-]{section*.81}{Failover manual}{section.4.5}% 92
+\BOOKMARK [2][-]{section*.82}{Monitoreo de DRBD}{section.4.5}% 93
+\BOOKMARK [2][-]{section*.83}{Restricciones importantes}{section.4.5}% 94
+\BOOKMARK [2][-]{section*.84}{Referencias}{section.4.5}% 95
+\BOOKMARK [2][-]{section*.85}{Temas de pr\341ctica}{section.4.5}% 96
+\BOOKMARK [0][-]{part.5}{V Virtualizaci\363n}{}% 97
+\BOOKMARK [1][-]{section.5.1}{Formas de virtualizaci\363n}{part.5}% 98
+\BOOKMARK [2][-]{section*.86}{Dominios o anillos de protecci\363n}{section.5.1}% 99
+\BOOKMARK [1][-]{section.5.2}{Aplicaciones}{part.5}% 100
+\BOOKMARK [1][-]{section.5.3}{Proxmox}{part.5}% 101
+\BOOKMARK [2][-]{section*.90}{L\355nea de comandos}{section.5.3}% 102
+\BOOKMARK [2][-]{section*.92}{Otras caracter\355sticas}{section.5.3}% 103
+\BOOKMARK [0][-]{part.6}{VI Alta Disponibilidad}{}% 104
+\BOOKMARK [0][-]{part.7}{VII Anexos}{}% 105
+\BOOKMARK [1][-]{appendix.Alph1}{iptables.log}{part.7}% 106
+\BOOKMARK [1][-]{appendix.Alph2}{Opciones de rsync}{part.7}% 107
+\BOOKMARK [1][-]{appendix.Alph3}{Ejemplo completo de configuraci\363n DRBD}{part.7}% 108

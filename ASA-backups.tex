@@ -1,5 +1,5 @@
-
-\section{Decisiones sobre los respaldos}
+\section{Backups}
+\subsection{Decisiones sobre los respaldos}
 \begin{itemize}
 	\item Propósitos y requerimientos legales, confidencialidad, etc.
 	\item Archivos a respaldar 
@@ -145,7 +145,7 @@ Más allá de las diferentes alternativas para realizar la copia periódica de a
 
 Esta forma de tratamiento de la información no protege de pérdidas o errores, pero facilita el rápido regreso a la operación de un sistema ante fallas de hardware. La replicación puede ser asimétrica (es decir, una copia es master y la segunda recibe las modificaciones), o simétrica (ambas copias reciben las modificaciones de la otra); y puede ser continua (disparada por eventos de filesystem) o administrativa (accionada por el administrador). El regreso a la operación de un sistema con fallos puede ser un proceso manual, como en el caso de clonar sobre \emph{bare metal} un sistema completo cuyo hardware ha quedado inutilizado, o automático, como en los clusters de Alta Disponibilidad.
 
-Herramientas que permiten ejecutar replicación, con diferentes alcances y objetivos, son el comando rsync, el utilitario unison (que utiliza el algoritmo de rsync), los sistemas de control de versiones como git o Subversion, filesystems distribuidos como Lustre o GlusterFS, los sistemas de almacenamiento en nube con clientes automáticos, como Dropbox o Owncloud, la clonación de máquinas virtuales, y el dispositivo de bloques replicado DRBD. 
+Herramientas que permiten ejecutar replicación, con diferentes alcances y objetivos, son los utilitarios rsync, csync2, unison (que utilizan el algoritmo de rsync), los sistemas de control de versiones como git o Subversion, filesystems distribuidos como Lustre o GlusterFS, los sistemas de almacenamiento en nube con clientes automáticos, como Dropbox o Owncloud, la clonación de máquinas virtuales, y el dispositivo de bloques replicado DRBD. 
 
 \subsection{Replicación con rsync}
 
@@ -212,7 +212,7 @@ El flujo de bytes es emitido por la salida standard del comando dd y entubado a 
 	\item Repita la experiencia utilizando scp. Verifique las opciones de compresión de modo que la comparación sea justa. Puede usar el comando time para obtener el tiempo real de ejecución. Compare los tiempos. 
 	\item Repita una vez más la transferencia utilizando rsync, sin eliminar el archivo ya copiado en su lugar de destino. Repita con scp y compare los tiempos.
 	\item Prepare un directorio con uno o dos niveles de subdirectorios. Guarde archivos de tamaño considerable en esa estructura. Repita el experimento anterior con rsync y con scp, registrando tiempos. Luego modifique un único carácter de un único archivo de la jerarquía, repitiendo la transferencia con ambas herramientas y registrando tiempos.
-	\item Clasifique en simétrica/asimétrica, continua/administrativa, la replicación ejecutada por herramientas como rsync, unison, git, Subversion, Lustre, GlusterFS, Dropbox, Owncloud, la clonación de máquinas virtuales, y el dispositivo de bloques replicado DRBD. ¿De qué forma ayuda cada una a recuperar la operatividad de un equipo en caso de fallo?	
+	\item Clasifique en simétrica/asimétrica, continua/administrativa, la replicación ejecutada por herramientas como rsync, csync2, unison, git, Subversion, Lustre, GlusterFS, Dropbox, Owncloud, la clonación de máquinas virtuales, y el dispositivo de bloques replicado DRBD. ¿De qué forma ayuda cada una a recuperar la operatividad de un equipo en caso de fallo?	
 	\item Cuando rsync utiliza ssh como transporte, se adapta a la política de autenticación de usuarios que utiliza ssh. ¿Cómo se puede evitar que rsync pida password de usuario para ejecutar una transferencia entre diferentes hosts?
 	\item Prepare un script para replicar un directorio junto con sus subdirectorios, usando rsync, en otro host. Instale el script en crontab. Verifique su funcionamiento modificando los contenidos del directorio.
 	\item Modifique el script anterior para utilizar el modo backup de rsync en lugar de replicar el directorio.

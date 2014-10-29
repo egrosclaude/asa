@@ -1,39 +1,35 @@
 
-% 
-% 
-% 	\item ¿Hay diferencia teórica de performance entre un dispositivo RAID linear y un RAID nivel 0? ¿Puede observarla experimentalmente? ¿Tiene sentido esta medición cuando el equipo es una máquina virtual? 
-% 	\item Si un administrador está preparando una máquina virtual para funcionar como estación de trabajo, ¿en qué casos le recomendaría el uso de RAID nivel 1 sobre discos virtuales?
-% 
-% Mecanismo para dividir los recursos en ambientes de ejecución aislados e independientes.
-% 
 \section{Formas de virtualización}
 \begin{itemize}
 	\item \emph{Hosts} o Anfitriones
 	\item \emph{Guests} o Huéspedes
 	\item Virtualización completa o Emulación
  	\begin{itemize}
- 		\item VMWare, QEMU, KVM
+		\item Reproducción, mediante software, de la conducta de todo el hardware. Es necesario escribir emuladores para cada dispositivo, lo cual es laborioso, costoso y generalmente difícil; pero presenta la ventaja de que la máquina completamente emulada permite correr cualquier sistema operativo sin modificaciones y sin que ese sistema operativo, ni las aplicaciones, perciban que están corriendo sobre hardware emulado. Esta forma de virtualización presenta la  mayor fidelidad y transparencia, pero performance limitada.
  	\end{itemize}
-% 	\item Virtualización
-%  	\begin{itemize}
-%  		\item Hypervisor o monitor de VM
-%  	\end{itemize}
-  	\item Paravirtualización
+ 	\item Virtualización asistida por hardware
 	\begin{itemize}
- 		\item  		Ejecuta un SO modificado
-		\item 		Xen, UML, VirtualBox en modo software
+		\item Apoyo provisto por el hardware para funciones de multiplexado de entrada/salida y manejo especial de memoria. Las generaciones recientes de procesadores (familia Core 2 de Intel en adelante) contienen la funcionalidad necesaria para asistir en la virtualización. Las ventajas consisten en buena performance y el hecho de poder correr en forma virtualizada cualquier sistema operativo sin necesidad de modificarlo. La desventaja es, por supuesto, que se necesita contar con la capacidad necesaria en el hardware.
+ 		\item VMWare, QEMU, KVM, Xen
 	\end{itemize}
+  	\item Paravirtualización
+		\begin{itemize}
+			\item Ejecución de un SO modificado
+ 			\item Reescritura de los drivers del sistema operativo host y de los guests. Los drivers se construyen según el modelo de \textit{split drivers}, o drivers divididos. El sistema operativo host es quien sigue actuando, con la parte inferior de los drivers, sobre los dispositivos físicos. Las máquinas virtuales, al efectuarse un requerimiento de entrada/salida, activan la mitad superior del driver y provocan un trap al monitor de virtualización, que administra los pedidos y los deriva a la mitad inferior del driver. 
+Los nuevos drivers permiten multiplexar entrada/salida entre los dispositivos físicos y una cantidad de dispositivos virtuales asociados. La ventaja principal es la gran performance lograda con respecto a la emulación o virtualización completa. Para determinadas cargas de trabajo, especialmente para programas acotados por CPU, la eficiencia de un conjunto de máquinas paravirtualizadas es muy cercana al óptimo. La principal desventaja es que claramente se necesita modificar o instrumentar el código, tanto del sistema operativo host como de los guests. Sin embargo las aplicaciones siguen funcionando sin modificaciones.
+			\item  Xen, UML, VirtualBox en modo software
+		\end{itemize}
 		\item Virtualización a nivel del SO
 	\begin{itemize}
-		\item 	VServer, OpenVZ
+		\item Creación de múltiples espacios de usuario independientes en lugar de uno solo (llamados, según la tecnología específica, contenedores, \textit{virtual engines} o VEs, \textit{virtual private servers} o VPS, o \textit{jails}). Permiten al usuario y a las aplicaciones obtener la misma vista que si se tratara de un server real. Implementación avanzada del mecanismo de \textit{chroot}. El kernel ofrece características de administración de recursos para garantizar el uso equitativo de los mismos entre los contenedores. 
+		\item VServer, OpenVZ
 	\end{itemize}
 \end{itemize}
 
-
 \subsection {Dominios o anillos de protección}
 
-\figura[7]{rings1}{Anillos de protección, normalmente 1 y 2 sin uso}{rings-1.jpg}
-\figura[7]{rings2}{Hipervisor de tipo 1 y sistema guest}{rings-2.jpg}
+\figura[10]{rings1}{Anillos de protección, normalmente 1 y 2 sin uso}{rings-1.pdf}
+\figura[10]{rings2}{Hipervisor de tipo 1 y sistema guest}{rings-2.pdf}
 
 \begin{itemize}
 	\item Orden de privilegios impuesto por el hardware
@@ -46,14 +42,14 @@
 	\begin{itemize}
 	\item El código que se ejecuta en un anillo más exterior no puede ejecutar instrucciones de los anillos más interiores ni acceder a memoria no asignada 
 	\item El salto a los anillos más interiores se hace por puntos de acceso predefinidos (las llamadas al sistema)	
-	\item Normalmente los kernels monolíticos corren en modo supervisor o kernel anillo 0, y las aplicaciones en modo usuario en el anillo 3
+	\item Normalmente los kernels monolíticos corren en modo supervisor o kernel anillo 0, y las aplicaciones en modo usuario en el anillo 3 (Fig. \ref{fig:rings1})
 	\end{itemize}
 	\item Hardware de hipervisor (VTx, AMD-V)
 	\begin{itemize}
 		\item Característica de algunos procesadores desde 2005
-		\item Crea un anillo modo 1 donde ejecutar el código privilegiado de las máquinas virtuales
+		\item Crea un anillo modo 1 donde ejecutar el código privilegiado de las máquinas virtuales (Fig. \ref{fig:rings2})
 	\end{itemize}
-	\item Hipervisor
+	\item Hipervisor o VMM
 	\begin{itemize}
 		\item Tipo 1
 		\begin{itemize}
@@ -76,22 +72,24 @@
 			\begin{itemize}
 				\item Muchos equipos en uno
 			\end{itemize}
-		\item Sistemas \textit{legacy}
 		\item Probar nuevas distribuciones u otro software
 		\item Probar actualizaciones
 	\end{itemize}
 	\item Para el administrador de sistemas
 	\begin{itemize}
 		\item Independencia del hardware
+		\item Sistemas \textit{legacy}
 		\item \textit{Provisioning}
-		\item \textit{Live Migration} para balance de carga
+		\item \textit{Live Migration} y balance de carga
+		\item Validación de backups, \textit{staging}
 		\item Hosting de servicios
 		\item Consolidación de servidores
 		\begin{itemize}
 			\item Menos espacio
-			\item Menos consumo
-			\item Menos calor
+			\item Menos consumo de energía
+			\item Menos calor disipado
 		\end{itemize}
+		\item Aumentar la disponibilidad
 	\end{itemize}
 \end{itemize}
 
@@ -184,7 +182,7 @@ Script para agregar discos
 	balloon: 512
 	bootdisk: ide0
 	cores: 1
-	description: TUASSL-asa010%0A
+	description: TUASSL-asa010
 	ide0: OSO-LABS:601/base-601-disk-1.qcow2/501/vm-501 disk-2.qcow2,format=qcow2,size=64G
 	ide2: OSO-LABS:iso/CentOS-6.5-x86_64-minimal.iso,media=cdrom
 	memory: 1024
@@ -199,23 +197,21 @@ Script para agregar discos
 
 \subsection{Otras características}
 	\begin{itemize}
-	\item Almacenamiento local o de red iSCSI, NFS, etc
-		\item 	Importación/exportación a VMWare
+		\item Almacenamiento local o de red iSCSI, NFS, etc
+		\item Importación/exportación a VMWare
 		\item Cliente Web, login Linux/PVE
-		\item Cluster
-\begin{itemize}
- 		\item  	Simétrico, sin nodo central de administración 
-		\item Cluster File System
-
- 	\end{itemize}		\item Backup + Restore
+		\item Clustering
 		\begin{itemize}
-		 		\item  	Scheduling, compresión, Live Snapshots
-	\item Migración en vivo
-		 	\end{itemize}
-	\item Administración de recursos
-\begin{itemize}
- 	\item  Pools de almacenamiento asignables a usuarios
- \end{itemize}
-	\end{itemize}
-
-
+ 			\item Simétrico, sin nodo central de administración 
+			\item Cluster File System, importante para preservar la disponibilidad
+	 	\end{itemize}		
+ 		\item Backup + Restore
+		\begin{itemize}
+		 	\item Scheduling, compresión, Live Snapshots
+			\item Migración en vivo
+		 \end{itemize}
+		\item Administración de recursos
+	\begin{itemize}
+ 		\item Pools de almacenamiento asignables a usuarios
+ 	\end{itemize}
+\end{itemize}
