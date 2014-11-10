@@ -77,33 +77,49 @@
 \contentsline {subsubsection}{Comando partimage}{35}{section*.66}
 \contentsline {subsubsection}{Comando netcat}{36}{section*.67}
 \contentsline {section}{\numberline {4}Temas de pr\IeC {\'a}ctica}{36}{section.4.4}
-\contentsline {section}{\numberline {5}DRBD}{37}{section.4.5}
-\contentsline {subsection}{Forma de operaci\IeC {\'o}n}{37}{section*.68}
-\contentsline {subsection}{Recursos DRBD}{38}{section*.69}
-\contentsline {subsection}{Instalaci\IeC {\'o}n de DRBD}{38}{section*.70}
-\contentsline {subsection}{Configuraci\IeC {\'o}n de DRBD}{38}{section*.71}
-\contentsline {subsubsection}{Ejemplo de configuraci\IeC {\'o}n}{38}{section*.72}
-\contentsline {subsection}{Ejecuci\IeC {\'o}n de DRBD}{40}{section*.74}
-\contentsline {subsubsection}{Inicializar el dispositivo}{40}{section*.75}
-\contentsline {subsubsection}{Activar el recurso}{40}{section*.76}
-\contentsline {subsubsection}{Establecer roles}{40}{section*.77}
-\contentsline {subsection}{Creaci\IeC {\'o}n de filesystems}{40}{section*.78}
-\contentsline {subsection}{Tuning del filesystem}{41}{section*.79}
-\contentsline {subsection}{Montado de los recursos}{41}{section*.80}
-\contentsline {subsection}{Failover manual}{41}{section*.81}
-\contentsline {subsection}{Monitoreo de DRBD}{41}{section*.82}
-\contentsline {subsection}{Restricciones importantes}{43}{section*.83}
-\contentsline {subsection}{Referencias}{43}{section*.84}
-\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{43}{section*.85}
-\contentsline {part}{V\hspace {1em}Virtualizaci\IeC {\'o}n}{44}{part.5}
-\contentsline {section}{\numberline {1}Formas de virtualizaci\IeC {\'o}n}{44}{section.5.1}
-\contentsline {subsection}{Dominios o anillos de protecci\IeC {\'o}n}{44}{section*.86}
-\contentsline {section}{\numberline {2}Aplicaciones}{46}{section.5.2}
-\contentsline {section}{\numberline {3}Proxmox}{46}{section.5.3}
-\contentsline {subsection}{L\IeC {\'\i }nea de comandos}{47}{section*.90}
-\contentsline {subsection}{Otras caracter\IeC {\'\i }sticas}{48}{section*.92}
-\contentsline {part}{VI\hspace {1em}Alta Disponibilidad}{50}{part.6}
-\contentsline {part}{VII\hspace {1em}Anexos}{51}{part.7}
-\contentsline {section}{\numberline {A}iptables.log}{51}{appendix.Alph1}
-\contentsline {section}{\numberline {B}Opciones de rsync}{53}{appendix.Alph2}
-\contentsline {section}{\numberline {C}Ejemplo completo de configuraci\IeC {\'o}n DRBD}{56}{appendix.Alph3}
+\contentsline {part}{V\hspace {1em}Alta Disponibilidad}{38}{part.5}
+\contentsline {section}{\numberline {1}Conceptos de Disponibilidad}{38}{section.5.1}
+\contentsline {subsection}{Alta Disponibilidad}{38}{section*.68}
+\contentsline {subsection}{Puntos \IeC {\'u}nicos de falla}{39}{section*.69}
+\contentsline {section}{\numberline {2}Clustering}{39}{section.5.2}
+\contentsline {section}{\numberline {3}DRBD}{42}{section.5.3}
+\contentsline {subsection}{Forma de operaci\IeC {\'o}n}{42}{section*.72}
+\contentsline {subsection}{Recursos DRBD}{43}{section*.73}
+\contentsline {subsection}{Configuraci\IeC {\'o}n de DRBD}{43}{section*.74}
+\contentsline {subsubsection}{Ejemplos de configuraci\IeC {\'o}n}{43}{section*.75}
+\contentsline {subsubsection}{Par\IeC {\'a}metros de configuraci\IeC {\'o}n}{44}{section*.76}
+\contentsline {subsection}{Ejecuci\IeC {\'o}n de DRBD}{46}{section*.78}
+\contentsline {subsubsection}{Inicializar el dispositivo}{46}{section*.79}
+\contentsline {subsubsection}{Activar el recurso}{46}{section*.80}
+\contentsline {subsubsection}{Establecer roles}{46}{section*.81}
+\contentsline {subsection}{Uso del dispositivo}{46}{section*.82}
+\contentsline {subsubsection}{Creaci\IeC {\'o}n de filesystems}{46}{section*.83}
+\contentsline {subsubsection}{Tuning del filesystem}{46}{section*.84}
+\contentsline {subsubsection}{Montado de los recursos}{47}{section*.85}
+\contentsline {subsubsection}{Failover manual}{47}{section*.86}
+\contentsline {subsection}{Monitoreo de DRBD}{47}{section*.87}
+\contentsline {subsection}{Restricciones importantes}{48}{section*.88}
+\contentsline {subsection}{Referencias}{49}{section*.89}
+\contentsline {subsection}{Notas de instalaci\IeC {\'o}n}{49}{section*.90}
+\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{49}{section*.91}
+\contentsline {section}{\numberline {4}Heartbeat}{49}{section.5.4}
+\contentsline {subsection}{Conceptos}{49}{section*.92}
+\contentsline {subsection}{Configuraci\IeC {\'o}n}{50}{section*.93}
+\contentsline {subsubsection}{Archivo de configuraci\IeC {\'o}n general}{50}{section*.94}
+\contentsline {subsubsection}{Archivo de recursos}{51}{section*.96}
+\contentsline {subsubsection}{Archivo de autenticaci\IeC {\'o}n}{52}{section*.97}
+\contentsline {subsection}{Entrega de los servicios a Heartbeat}{52}{section*.98}
+\contentsline {subsection}{Monitoreo de Heartbeat}{53}{section*.99}
+\contentsline {subsection}{Testing del cluster}{53}{section*.100}
+\contentsline {subsection}{Notas de instalaci\IeC {\'o}n}{53}{section*.101}
+\contentsline {part}{VI\hspace {1em}Virtualizaci\IeC {\'o}n}{54}{part.6}
+\contentsline {section}{\numberline {1}Formas de virtualizaci\IeC {\'o}n}{54}{section.6.1}
+\contentsline {subsection}{Dominios o anillos de protecci\IeC {\'o}n}{54}{section*.102}
+\contentsline {section}{\numberline {2}Aplicaciones}{56}{section.6.2}
+\contentsline {section}{\numberline {3}Proxmox}{56}{section.6.3}
+\contentsline {subsection}{L\IeC {\'\i }nea de comandos}{57}{section*.106}
+\contentsline {subsection}{Otras caracter\IeC {\'\i }sticas}{58}{section*.108}
+\contentsline {part}{VII\hspace {1em}Anexos}{60}{part.7}
+\contentsline {section}{\numberline {A}iptables.log}{60}{appendix.Alph1}
+\contentsline {section}{\numberline {B}Opciones de rsync}{62}{appendix.Alph2}
+\contentsline {section}{\numberline {C}Ejemplo completo de configuraci\IeC {\'o}n DRBD}{65}{appendix.Alph3}

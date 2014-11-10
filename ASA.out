@@ -76,33 +76,49 @@
 \BOOKMARK [3][-]{section*.66}{Comando partimage}{section*.64}% 76
 \BOOKMARK [3][-]{section*.67}{Comando netcat}{section*.64}% 77
 \BOOKMARK [1][-]{section.4.4}{Temas de pr\341ctica}{part.4}% 78
-\BOOKMARK [1][-]{section.4.5}{DRBD}{part.4}% 79
-\BOOKMARK [2][-]{section*.68}{Forma de operaci\363n}{section.4.5}% 80
-\BOOKMARK [2][-]{section*.69}{Recursos DRBD}{section.4.5}% 81
-\BOOKMARK [2][-]{section*.70}{Instalaci\363n de DRBD}{section.4.5}% 82
-\BOOKMARK [2][-]{section*.71}{Configuraci\363n de DRBD}{section.4.5}% 83
-\BOOKMARK [3][-]{section*.72}{Ejemplo de configuraci\363n}{section*.71}% 84
-\BOOKMARK [2][-]{section*.74}{Ejecuci\363n de DRBD}{section.4.5}% 85
-\BOOKMARK [3][-]{section*.75}{Inicializar el dispositivo}{section*.74}% 86
-\BOOKMARK [3][-]{section*.76}{Activar el recurso}{section*.74}% 87
-\BOOKMARK [3][-]{section*.77}{Establecer roles}{section*.74}% 88
-\BOOKMARK [2][-]{section*.78}{Creaci\363n de filesystems}{section.4.5}% 89
-\BOOKMARK [2][-]{section*.79}{Tuning del filesystem}{section.4.5}% 90
-\BOOKMARK [2][-]{section*.80}{Montado de los recursos}{section.4.5}% 91
-\BOOKMARK [2][-]{section*.81}{Failover manual}{section.4.5}% 92
-\BOOKMARK [2][-]{section*.82}{Monitoreo de DRBD}{section.4.5}% 93
-\BOOKMARK [2][-]{section*.83}{Restricciones importantes}{section.4.5}% 94
-\BOOKMARK [2][-]{section*.84}{Referencias}{section.4.5}% 95
-\BOOKMARK [2][-]{section*.85}{Temas de pr\341ctica}{section.4.5}% 96
-\BOOKMARK [0][-]{part.5}{V Virtualizaci\363n}{}% 97
-\BOOKMARK [1][-]{section.5.1}{Formas de virtualizaci\363n}{part.5}% 98
-\BOOKMARK [2][-]{section*.86}{Dominios o anillos de protecci\363n}{section.5.1}% 99
-\BOOKMARK [1][-]{section.5.2}{Aplicaciones}{part.5}% 100
-\BOOKMARK [1][-]{section.5.3}{Proxmox}{part.5}% 101
-\BOOKMARK [2][-]{section*.90}{L\355nea de comandos}{section.5.3}% 102
-\BOOKMARK [2][-]{section*.92}{Otras caracter\355sticas}{section.5.3}% 103
-\BOOKMARK [0][-]{part.6}{VI Alta Disponibilidad}{}% 104
-\BOOKMARK [0][-]{part.7}{VII Anexos}{}% 105
-\BOOKMARK [1][-]{appendix.Alph1}{iptables.log}{part.7}% 106
-\BOOKMARK [1][-]{appendix.Alph2}{Opciones de rsync}{part.7}% 107
-\BOOKMARK [1][-]{appendix.Alph3}{Ejemplo completo de configuraci\363n DRBD}{part.7}% 108
+\BOOKMARK [0][-]{part.5}{V Alta Disponibilidad}{}% 79
+\BOOKMARK [1][-]{section.5.1}{Conceptos de Disponibilidad}{part.5}% 80
+\BOOKMARK [2][-]{section*.68}{Alta Disponibilidad}{section.5.1}% 81
+\BOOKMARK [2][-]{section*.69}{Puntos \372nicos de falla}{section.5.1}% 82
+\BOOKMARK [1][-]{section.5.2}{Clustering}{part.5}% 83
+\BOOKMARK [1][-]{section.5.3}{DRBD}{part.5}% 84
+\BOOKMARK [2][-]{section*.72}{Forma de operaci\363n}{section.5.3}% 85
+\BOOKMARK [2][-]{section*.73}{Recursos DRBD}{section.5.3}% 86
+\BOOKMARK [2][-]{section*.74}{Configuraci\363n de DRBD}{section.5.3}% 87
+\BOOKMARK [3][-]{section*.75}{Ejemplos de configuraci\363n}{section*.74}% 88
+\BOOKMARK [3][-]{section*.76}{Par\341metros de configuraci\363n}{section*.74}% 89
+\BOOKMARK [2][-]{section*.78}{Ejecuci\363n de DRBD}{section.5.3}% 90
+\BOOKMARK [3][-]{section*.79}{Inicializar el dispositivo}{section*.78}% 91
+\BOOKMARK [3][-]{section*.80}{Activar el recurso}{section*.78}% 92
+\BOOKMARK [3][-]{section*.81}{Establecer roles}{section*.78}% 93
+\BOOKMARK [2][-]{section*.82}{Uso del dispositivo}{section.5.3}% 94
+\BOOKMARK [3][-]{section*.83}{Creaci\363n de filesystems}{section*.82}% 95
+\BOOKMARK [3][-]{section*.84}{Tuning del filesystem}{section*.82}% 96
+\BOOKMARK [3][-]{section*.85}{Montado de los recursos}{section*.82}% 97
+\BOOKMARK [3][-]{section*.86}{Failover manual}{section*.82}% 98
+\BOOKMARK [2][-]{section*.87}{Monitoreo de DRBD}{section.5.3}% 99
+\BOOKMARK [2][-]{section*.88}{Restricciones importantes}{section.5.3}% 100
+\BOOKMARK [2][-]{section*.89}{Referencias}{section.5.3}% 101
+\BOOKMARK [2][-]{section*.90}{Notas de instalaci\363n}{section.5.3}% 102
+\BOOKMARK [2][-]{section*.91}{Temas de pr\341ctica}{section.5.3}% 103
+\BOOKMARK [1][-]{section.5.4}{Heartbeat}{part.5}% 104
+\BOOKMARK [2][-]{section*.92}{Conceptos}{section.5.4}% 105
+\BOOKMARK [2][-]{section*.93}{Configuraci\363n}{section.5.4}% 106
+\BOOKMARK [3][-]{section*.94}{Archivo de configuraci\363n general}{section*.93}% 107
+\BOOKMARK [3][-]{section*.96}{Archivo de recursos}{section*.93}% 108
+\BOOKMARK [3][-]{section*.97}{Archivo de autenticaci\363n}{section*.93}% 109
+\BOOKMARK [2][-]{section*.98}{Entrega de los servicios a Heartbeat}{section.5.4}% 110
+\BOOKMARK [2][-]{section*.99}{Monitoreo de Heartbeat}{section.5.4}% 111
+\BOOKMARK [2][-]{section*.100}{Testing del cluster}{section.5.4}% 112
+\BOOKMARK [2][-]{section*.101}{Notas de instalaci\363n}{section.5.4}% 113
+\BOOKMARK [0][-]{part.6}{VI Virtualizaci\363n}{}% 114
+\BOOKMARK [1][-]{section.6.1}{Formas de virtualizaci\363n}{part.6}% 115
+\BOOKMARK [2][-]{section*.102}{Dominios o anillos de protecci\363n}{section.6.1}% 116
+\BOOKMARK [1][-]{section.6.2}{Aplicaciones}{part.6}% 117
+\BOOKMARK [1][-]{section.6.3}{Proxmox}{part.6}% 118
+\BOOKMARK [2][-]{section*.106}{L\355nea de comandos}{section.6.3}% 119
+\BOOKMARK [2][-]{section*.108}{Otras caracter\355sticas}{section.6.3}% 120
+\BOOKMARK [0][-]{part.7}{VII Anexos}{}% 121
+\BOOKMARK [1][-]{appendix.Alph1}{iptables.log}{part.7}% 122
+\BOOKMARK [1][-]{appendix.Alph2}{Opciones de rsync}{part.7}% 123
+\BOOKMARK [1][-]{appendix.Alph3}{Ejemplo completo de configuraci\363n DRBD}{part.7}% 124
