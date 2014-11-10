@@ -65,7 +65,7 @@ resource drbd0 {
 }
 \end{lstlisting}
 
-\item Un recurso con dos volúmenes, con almacenamiento en volúmenes lógicos llamados lv0 y lv1 respectivamente. En ambos nodos, los nombres de los LV son idénticos. Cada volumen recibe un nombre de dispositivo propio por el cual será manejado en adelante (parámetro \code{device}).
+\item Un recurso con dos volúmenes, con almacenamiento en volúmenes lógicos llamados lv0 y lv1 respectivamente. En ambos nodos, los nombres de los LV son idénticos. Cada volumen recibe un nombre de dispositivo propio (parámetro \code{device}).
 
 \begin{lstlisting}
 resource drbd0 {
@@ -163,7 +163,7 @@ La configuración por defecto del protocolo (C) se encuentra en el archivo de co
 }
 
 \subsection{Ejecución de DRBD}
-Una vez creada la configuración, para la inicialización, puesta en marcha y administración de DRBD se recurre principalmente al comando \code{drbdadm} con sus subcomandos (Cuadro \ref{tab:drbdcomandos}). Todos los comandos se referirán al recurso o volumen según su nombre de dispositivo. 
+Una vez creada la configuración, para la inicialización, puesta en marcha y administración de DRBD se recurre principalmente al comando \code{drbdadm} con sus subcomandos (Cuadro \ref{tab:drbdcomandos}). 
 
 \subsubsection{Inicializar el dispositivo}
 Esta operación crea en el soporte los metadatos para la replicación. 
