@@ -1,125 +1,129 @@
 \select@language {spanish}
-\contentsline {part}{I\hspace {1em}La asignatura}{7}{part.1}
-\contentsline {section}{\numberline {1}Objetivos}{7}{section.1.1}
-\contentsline {subsection}{De la carrera}{7}{section*.2}
-\contentsline {subsection}{De la asignatura}{7}{section*.3}
-\contentsline {section}{\numberline {2}Cursado}{7}{section.1.2}
-\contentsline {section}{\numberline {3}Contenidos}{7}{section.1.3}
-\contentsline {subsection}{Contenidos m\IeC {\'\i }nimos}{7}{section*.4}
-\contentsline {subsection}{Programa}{8}{section*.5}
-\contentsline {section}{\numberline {4}Bibliograf\IeC {\'\i }a inicial}{8}{section.1.4}
-\contentsline {subsection}{Biblioteca Virtual del MinCyT}{8}{section*.6}
-\contentsline {section}{\numberline {5}Cronograma}{9}{section.1.5}
-\contentsline {part}{II\hspace {1em}Scripting Avanzado}{10}{part.2}
-\contentsline {section}{\numberline {1}Contenidos}{10}{section.2.1}
-\contentsline {section}{\numberline {2}Ejercitaci\IeC {\'o}n b\IeC {\'a}sica}{10}{section.2.2}
-\contentsline {subsection}{Redirecci\IeC {\'o}n y piping}{10}{section*.7}
-\contentsline {subsection}{Variables, ambiente}{10}{section*.8}
-\contentsline {subsection}{Sentencias de control}{10}{section*.9}
-\contentsline {subsection}{Aritm\IeC {\'e}tica}{11}{section*.10}
-\contentsline {subsection}{Arreglos}{12}{section*.11}
-\contentsline {subsection}{Arreglos asociativos}{12}{section*.12}
-\contentsline {subsection}{Here-Documents}{12}{section*.13}
-\contentsline {subsection}{Traps}{12}{section*.14}
-\contentsline {section}{\numberline {3}Casos de uso}{13}{section.2.3}
-\contentsline {subsection}{Investigar el sistema}{13}{section*.15}
-\contentsline {subsection}{Recuperar espacio de almacenamiento}{13}{section*.16}
-\contentsline {subsection}{Networking}{13}{section*.17}
-\contentsline {subsection}{Seguridad}{13}{section*.18}
-\contentsline {subsection}{Tratamiento de datos}{13}{section*.19}
-\contentsline {subsection}{Accesibilidad para usuarios finales}{14}{section*.20}
-\contentsline {part}{III\hspace {1em}Configuraciones de Almacenamiento}{15}{part.3}
-\contentsline {section}{\numberline {1}Contenidos}{15}{section.3.1}
-\contentsline {section}{\numberline {2}Dispositivos y filesystems}{15}{section.3.2}
-\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{16}{section*.22}
-\contentsline {subsection}{Loop devices}{16}{section*.23}
-\contentsline {section}{\numberline {3}RAID}{17}{section.3.3}
-\contentsline {subsection}{Niveles RAID}{18}{section*.24}
-\contentsline {subsection}{Modos de operaci\IeC {\'o}n}{18}{section*.25}
-\contentsline {subsection}{Construcci\IeC {\'o}n y uso de un array RAID-1}{19}{section*.26}
-\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{20}{section*.27}
-\contentsline {section}{\numberline {4}Administraci\IeC {\'o}n de LVM}{21}{section.3.4}
-\contentsline {subsection}{Introducci\IeC {\'o}n a LVM}{21}{section*.28}
-\contentsline {subsection}{Componentes de LVM}{21}{section*.29}
-\contentsline {subsection}{Uso de LVM}{22}{section*.31}
-\contentsline {subsection}{Redimensionamiento de vol\IeC {\'u}menes}{23}{section*.32}
-\contentsline {subsubsection}{Redimensionamiento autom\IeC {\'a}tico}{23}{section*.33}
-\contentsline {subsubsection}{Indicaci\IeC {\'o}n del nuevo tama\IeC {\~n}o}{23}{section*.34}
-\contentsline {subsubsection}{Bytes y extents}{24}{section*.36}
-\contentsline {subsection}{Snapshots y backups}{24}{section*.38}
-\contentsline {subsubsection}{Dimensionamiento del snapshot}{25}{section*.39}
-\contentsline {subsubsection}{Creaci\IeC {\'o}n de snapshots}{25}{section*.40}
-\contentsline {subsubsection}{Lectura y escritura del LVO}{25}{section*.42}
-\contentsline {subsubsection}{Lectura y escritura del snapshot}{25}{section*.44}
-\contentsline {subsection}{Creaci\IeC {\'o}n de backups con snapshots}{25}{section*.47}
-\contentsline {subsection}{Uso preventivo de snapshots}{27}{section*.48}
-\contentsline {subsubsection}{Reversi\IeC {\'o}n de snapshots}{27}{section*.49}
-\contentsline {subsection}{Eliminaci\IeC {\'o}n del snapshot}{28}{section*.50}
-\contentsline {subsection}{Ejemplos LVM}{28}{section*.51}
-\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{29}{section*.52}
-\contentsline {section}{\numberline {5}SMART}{30}{section.3.5}
-\contentsline {subsection}{Atributos}{30}{section*.53}
-\contentsline {subsection}{Diagn\IeC {\'o}sticos}{30}{section*.54}
-\contentsline {subsection}{Tests}{31}{section*.56}
-\contentsline {subsection}{Paquete smartmontools}{31}{section*.57}
-\contentsline {part}{IV\hspace {1em}Estrategias de Respaldo}{32}{part.4}
-\contentsline {section}{\numberline {1}Backups}{32}{section.4.1}
-\contentsline {subsection}{Decisiones sobre los respaldos}{32}{section*.58}
-\contentsline {section}{\numberline {2}Sincronizaci\IeC {\'o}n de archivos}{32}{section.4.2}
-\contentsline {subsection}{Herramienta rsync}{32}{section*.59}
-\contentsline {subsubsection}{Especificaci\IeC {\'o}n del origen}{33}{section*.60}
-\contentsline {subsubsection}{Modo backup}{34}{section*.61}
-\contentsline {section}{\numberline {3}Replicaci\IeC {\'o}n de datos}{34}{section.4.3}
-\contentsline {subsection}{Replicaci\IeC {\'o}n con rsync}{35}{section*.62}
-\contentsline {subsubsection}{Modo \emph {dry-run}}{35}{section*.63}
-\contentsline {subsection}{Replicaci\IeC {\'o}n de particiones}{35}{section*.64}
-\contentsline {subsubsection}{Comando dd}{35}{section*.65}
-\contentsline {subsubsection}{Comando partimage}{35}{section*.66}
-\contentsline {subsubsection}{Comando netcat}{36}{section*.67}
-\contentsline {section}{\numberline {4}Temas de pr\IeC {\'a}ctica}{36}{section.4.4}
-\contentsline {part}{V\hspace {1em}Alta Disponibilidad}{38}{part.5}
-\contentsline {section}{\numberline {1}Conceptos de Disponibilidad}{38}{section.5.1}
-\contentsline {subsection}{Alta Disponibilidad}{38}{section*.68}
-\contentsline {subsection}{Puntos \IeC {\'u}nicos de falla}{39}{section*.69}
-\contentsline {section}{\numberline {2}Clustering}{39}{section.5.2}
-\contentsline {section}{\numberline {3}DRBD}{42}{section.5.3}
-\contentsline {subsection}{Forma de operaci\IeC {\'o}n}{42}{section*.72}
-\contentsline {subsection}{Recursos DRBD}{43}{section*.73}
-\contentsline {subsection}{Configuraci\IeC {\'o}n de DRBD}{43}{section*.74}
-\contentsline {subsubsection}{Ejemplos de configuraci\IeC {\'o}n}{43}{section*.75}
-\contentsline {subsubsection}{Par\IeC {\'a}metros de configuraci\IeC {\'o}n}{44}{section*.76}
-\contentsline {subsection}{Ejecuci\IeC {\'o}n de DRBD}{46}{section*.78}
-\contentsline {subsubsection}{Inicializar el dispositivo}{46}{section*.79}
-\contentsline {subsubsection}{Activar el recurso}{46}{section*.80}
-\contentsline {subsubsection}{Establecer roles}{46}{section*.81}
-\contentsline {subsection}{Uso del dispositivo}{46}{section*.82}
-\contentsline {subsubsection}{Creaci\IeC {\'o}n de filesystems}{46}{section*.83}
-\contentsline {subsubsection}{Tuning del filesystem}{46}{section*.84}
-\contentsline {subsubsection}{Montado de los recursos}{47}{section*.85}
-\contentsline {subsubsection}{Failover manual}{47}{section*.86}
-\contentsline {subsection}{Monitoreo de DRBD}{47}{section*.87}
-\contentsline {subsection}{Restricciones importantes}{48}{section*.88}
-\contentsline {subsection}{Referencias}{48}{section*.89}
-\contentsline {subsection}{Notas de instalaci\IeC {\'o}n}{49}{section*.90}
-\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{49}{section*.91}
-\contentsline {section}{\numberline {4}Heartbeat}{49}{section.5.4}
-\contentsline {subsection}{Conceptos}{49}{section*.92}
-\contentsline {subsection}{Configuraci\IeC {\'o}n}{50}{section*.93}
-\contentsline {subsubsection}{Archivo de configuraci\IeC {\'o}n general}{50}{section*.94}
-\contentsline {subsubsection}{Archivo de recursos}{51}{section*.96}
-\contentsline {subsubsection}{Archivo de autenticaci\IeC {\'o}n}{52}{section*.97}
-\contentsline {subsection}{Entrega de los servicios a Heartbeat}{52}{section*.98}
-\contentsline {subsection}{Monitoreo de Heartbeat}{53}{section*.99}
-\contentsline {subsection}{Testing del cluster}{53}{section*.100}
-\contentsline {subsection}{Notas de instalaci\IeC {\'o}n}{53}{section*.101}
-\contentsline {part}{VI\hspace {1em}Virtualizaci\IeC {\'o}n}{54}{part.6}
-\contentsline {section}{\numberline {1}Formas de virtualizaci\IeC {\'o}n}{54}{section.6.1}
-\contentsline {subsection}{Dominios o anillos de protecci\IeC {\'o}n}{54}{section*.102}
-\contentsline {section}{\numberline {2}Aplicaciones}{56}{section.6.2}
-\contentsline {section}{\numberline {3}Proxmox}{56}{section.6.3}
-\contentsline {subsection}{L\IeC {\'\i }nea de comandos}{57}{section*.106}
-\contentsline {subsection}{Otras caracter\IeC {\'\i }sticas}{58}{section*.108}
-\contentsline {part}{VII\hspace {1em}Anexos}{60}{part.7}
-\contentsline {section}{\numberline {A}iptables.log}{60}{appendix.Alph1}
-\contentsline {section}{\numberline {B}Opciones de rsync}{62}{appendix.Alph2}
-\contentsline {section}{\numberline {C}Ejemplo completo de configuraci\IeC {\'o}n DRBD}{65}{appendix.Alph3}
+\contentsline {part}{I\hspace {1em}La asignatura}{8}{part.1}
+\contentsline {section}{\numberline {1}Objetivos}{8}{section.1.1}
+\contentsline {subsection}{De la carrera}{8}{section*.2}
+\contentsline {subsection}{De la asignatura}{8}{section*.3}
+\contentsline {section}{\numberline {2}Cursado}{8}{section.1.2}
+\contentsline {section}{\numberline {3}Contenidos}{8}{section.1.3}
+\contentsline {subsection}{Contenidos m\IeC {\'\i }nimos}{8}{section*.4}
+\contentsline {subsection}{Programa}{9}{section*.5}
+\contentsline {section}{\numberline {4}Bibliograf\IeC {\'\i }a inicial}{9}{section.1.4}
+\contentsline {subsection}{Biblioteca Virtual del MinCyT}{9}{section*.6}
+\contentsline {section}{\numberline {5}Cronograma}{10}{section.1.5}
+\contentsline {part}{II\hspace {1em}Scripting Avanzado}{11}{part.2}
+\contentsline {section}{\numberline {1}Contenidos}{11}{section.2.1}
+\contentsline {section}{\numberline {2}Ejercitaci\IeC {\'o}n b\IeC {\'a}sica}{11}{section.2.2}
+\contentsline {subsection}{Redirecci\IeC {\'o}n y piping}{11}{section*.7}
+\contentsline {subsection}{Variables, ambiente}{11}{section*.8}
+\contentsline {subsection}{Sentencias de control}{11}{section*.9}
+\contentsline {subsection}{Aritm\IeC {\'e}tica}{12}{section*.10}
+\contentsline {subsection}{Arreglos}{13}{section*.11}
+\contentsline {subsection}{Arreglos asociativos}{13}{section*.12}
+\contentsline {subsection}{Here-Documents}{13}{section*.13}
+\contentsline {subsection}{Traps}{13}{section*.14}
+\contentsline {section}{\numberline {3}Casos de uso}{14}{section.2.3}
+\contentsline {subsection}{Investigar el sistema}{14}{section*.15}
+\contentsline {subsection}{Recuperar espacio de almacenamiento}{14}{section*.16}
+\contentsline {subsection}{Networking}{14}{section*.17}
+\contentsline {subsection}{Seguridad}{14}{section*.18}
+\contentsline {subsection}{Tratamiento de datos}{14}{section*.19}
+\contentsline {subsection}{Accesibilidad para usuarios finales}{15}{section*.20}
+\contentsline {part}{III\hspace {1em}Configuraciones de Almacenamiento}{16}{part.3}
+\contentsline {section}{\numberline {1}Contenidos}{16}{section.3.1}
+\contentsline {section}{\numberline {2}Dispositivos y filesystems}{16}{section.3.2}
+\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{17}{section*.22}
+\contentsline {subsection}{Loop devices}{17}{section*.23}
+\contentsline {section}{\numberline {3}RAID}{18}{section.3.3}
+\contentsline {subsection}{Niveles RAID}{19}{section*.24}
+\contentsline {subsection}{Modos de operaci\IeC {\'o}n}{19}{section*.25}
+\contentsline {subsection}{Construcci\IeC {\'o}n y uso de un array RAID-1}{20}{section*.26}
+\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{21}{section*.27}
+\contentsline {section}{\numberline {4}Administraci\IeC {\'o}n de LVM}{22}{section.3.4}
+\contentsline {subsection}{Introducci\IeC {\'o}n a LVM}{22}{section*.28}
+\contentsline {subsection}{Componentes de LVM}{22}{section*.29}
+\contentsline {subsection}{Uso de LVM}{23}{section*.31}
+\contentsline {subsection}{Redimensionamiento de vol\IeC {\'u}menes}{24}{section*.32}
+\contentsline {subsubsection}{Redimensionamiento autom\IeC {\'a}tico}{24}{section*.33}
+\contentsline {subsubsection}{Indicaci\IeC {\'o}n del nuevo tama\IeC {\~n}o}{24}{section*.34}
+\contentsline {subsubsection}{Bytes y extents}{25}{section*.36}
+\contentsline {subsection}{Snapshots y backups}{25}{section*.38}
+\contentsline {subsubsection}{Dimensionamiento del snapshot}{26}{section*.39}
+\contentsline {subsubsection}{Creaci\IeC {\'o}n de snapshots}{26}{section*.40}
+\contentsline {subsubsection}{Lectura y escritura del LVO}{26}{section*.42}
+\contentsline {subsubsection}{Lectura y escritura del snapshot}{26}{section*.44}
+\contentsline {subsection}{Creaci\IeC {\'o}n de backups con snapshots}{26}{section*.47}
+\contentsline {subsection}{Uso preventivo de snapshots}{28}{section*.48}
+\contentsline {subsubsection}{Reversi\IeC {\'o}n de snapshots}{28}{section*.49}
+\contentsline {subsection}{Eliminaci\IeC {\'o}n del snapshot}{29}{section*.50}
+\contentsline {subsection}{Ejemplos LVM}{29}{section*.51}
+\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{30}{section*.52}
+\contentsline {section}{\numberline {5}SMART}{31}{section.3.5}
+\contentsline {subsection}{Atributos}{31}{section*.53}
+\contentsline {subsection}{Diagn\IeC {\'o}sticos}{31}{section*.54}
+\contentsline {subsection}{Tests}{32}{section*.56}
+\contentsline {subsection}{Paquete smartmontools}{32}{section*.57}
+\contentsline {part}{IV\hspace {1em}Estrategias de Respaldo}{33}{part.4}
+\contentsline {section}{\numberline {1}Backups}{33}{section.4.1}
+\contentsline {subsection}{Decisiones sobre los respaldos}{33}{section*.58}
+\contentsline {section}{\numberline {2}Sincronizaci\IeC {\'o}n de archivos}{33}{section.4.2}
+\contentsline {subsection}{Herramienta rsync}{33}{section*.59}
+\contentsline {subsubsection}{Especificaci\IeC {\'o}n del origen}{34}{section*.60}
+\contentsline {subsubsection}{Modo backup}{35}{section*.61}
+\contentsline {section}{\numberline {3}Replicaci\IeC {\'o}n de datos}{35}{section.4.3}
+\contentsline {subsection}{Replicaci\IeC {\'o}n con rsync}{36}{section*.62}
+\contentsline {subsubsection}{Modo \emph {dry-run}}{36}{section*.63}
+\contentsline {subsection}{Replicaci\IeC {\'o}n de particiones}{36}{section*.64}
+\contentsline {subsubsection}{Comando dd}{36}{section*.65}
+\contentsline {subsubsection}{Comando partimage}{36}{section*.66}
+\contentsline {subsubsection}{Comando netcat}{37}{section*.67}
+\contentsline {section}{\numberline {4}Temas de pr\IeC {\'a}ctica}{37}{section.4.4}
+\contentsline {part}{V\hspace {1em}Alta Disponibilidad}{39}{part.5}
+\contentsline {section}{\numberline {1}Conceptos de Disponibilidad}{39}{section.5.1}
+\contentsline {subsection}{Alta Disponibilidad}{39}{section*.68}
+\contentsline {subsection}{Puntos \IeC {\'u}nicos de falla}{40}{section*.69}
+\contentsline {section}{\numberline {2}Clustering}{40}{section.5.2}
+\contentsline {section}{\numberline {3}DRBD}{43}{section.5.3}
+\contentsline {subsection}{Forma de operaci\IeC {\'o}n}{43}{section*.72}
+\contentsline {subsection}{Recursos DRBD}{44}{section*.73}
+\contentsline {subsection}{Configuraci\IeC {\'o}n de DRBD}{44}{section*.74}
+\contentsline {subsubsection}{Ejemplos de configuraci\IeC {\'o}n}{44}{section*.75}
+\contentsline {subsubsection}{Par\IeC {\'a}metros de configuraci\IeC {\'o}n}{45}{section*.76}
+\contentsline {subsection}{Ejecuci\IeC {\'o}n de DRBD}{47}{section*.78}
+\contentsline {subsubsection}{Inicializar el dispositivo}{47}{section*.79}
+\contentsline {subsubsection}{Activar el recurso}{47}{section*.80}
+\contentsline {subsubsection}{Establecer roles}{47}{section*.81}
+\contentsline {subsection}{Uso del dispositivo}{47}{section*.82}
+\contentsline {subsubsection}{Creaci\IeC {\'o}n de filesystems}{47}{section*.83}
+\contentsline {subsubsection}{Tuning del filesystem}{47}{section*.84}
+\contentsline {subsubsection}{Montado de los recursos}{48}{section*.85}
+\contentsline {subsubsection}{Failover manual}{48}{section*.86}
+\contentsline {subsection}{Monitoreo de DRBD}{48}{section*.87}
+\contentsline {subsection}{Restricciones importantes}{49}{section*.88}
+\contentsline {subsection}{Referencias}{49}{section*.89}
+\contentsline {subsection}{Notas de instalaci\IeC {\'o}n}{50}{section*.90}
+\contentsline {subsection}{Temas de pr\IeC {\'a}ctica}{50}{section*.91}
+\contentsline {section}{\numberline {4}Heartbeat}{50}{section.5.4}
+\contentsline {subsection}{Conceptos}{50}{section*.92}
+\contentsline {subsection}{Configuraci\IeC {\'o}n}{51}{section*.93}
+\contentsline {subsubsection}{Archivo de configuraci\IeC {\'o}n general}{51}{section*.94}
+\contentsline {subsubsection}{Archivo de recursos}{52}{section*.96}
+\contentsline {subsubsection}{Archivo de autenticaci\IeC {\'o}n}{53}{section*.97}
+\contentsline {subsection}{Entrega de los servicios a Heartbeat}{53}{section*.98}
+\contentsline {subsection}{Monitoreo de Heartbeat}{54}{section*.99}
+\contentsline {subsection}{Testing del cluster}{54}{section*.100}
+\contentsline {subsection}{Notas de instalaci\IeC {\'o}n}{54}{section*.101}
+\contentsline {part}{VI\hspace {1em}Virtualizaci\IeC {\'o}n}{55}{part.6}
+\contentsline {section}{\numberline {1}Formas de virtualizaci\IeC {\'o}n}{55}{section.6.1}
+\contentsline {subsection}{Dominios o anillos de protecci\IeC {\'o}n}{55}{section*.102}
+\contentsline {section}{\numberline {2}Aplicaciones}{57}{section.6.2}
+\contentsline {section}{\numberline {3}Proxmox}{57}{section.6.3}
+\contentsline {subsection}{L\IeC {\'\i }nea de comandos}{58}{section*.106}
+\contentsline {subsection}{Otras caracter\IeC {\'\i }sticas}{59}{section*.108}
+\contentsline {section}{\numberline {4}Cloud Computing}{60}{section.6.4}
+\contentsline {subsection}{Propiedades de Cloud Computing}{60}{section*.110}
+\contentsline {subsection}{Modelos de servicio en Cloud Computing}{61}{section*.111}
+\contentsline {subsection}{Objetos gestionados}{61}{section*.112}
+\contentsline {part}{VII\hspace {1em}Anexos}{62}{part.7}
+\contentsline {section}{\numberline {A}iptables.log}{62}{appendix.Alph1}
+\contentsline {section}{\numberline {B}Opciones de rsync}{64}{appendix.Alph2}
+\contentsline {section}{\numberline {C}Ejemplo completo de configuraci\IeC {\'o}n DRBD}{67}{appendix.Alph3}

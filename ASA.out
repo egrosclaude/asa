@@ -118,7 +118,11 @@
 \BOOKMARK [1][-]{section.6.3}{Proxmox}{part.6}% 118
 \BOOKMARK [2][-]{section*.106}{L\355nea de comandos}{section.6.3}% 119
 \BOOKMARK [2][-]{section*.108}{Otras caracter\355sticas}{section.6.3}% 120
-\BOOKMARK [0][-]{part.7}{VII Anexos}{}% 121
-\BOOKMARK [1][-]{appendix.Alph1}{iptables.log}{part.7}% 122
-\BOOKMARK [1][-]{appendix.Alph2}{Opciones de rsync}{part.7}% 123
-\BOOKMARK [1][-]{appendix.Alph3}{Ejemplo completo de configuraci\363n DRBD}{part.7}% 124
+\BOOKMARK [1][-]{section.6.4}{Cloud Computing}{part.6}% 121
+\BOOKMARK [2][-]{section*.110}{Propiedades de Cloud Computing}{section.6.4}% 122
+\BOOKMARK [2][-]{section*.111}{Modelos de servicio en Cloud Computing}{section.6.4}% 123
+\BOOKMARK [2][-]{section*.112}{Objetos gestionados}{section.6.4}% 124
+\BOOKMARK [0][-]{part.7}{VII Anexos}{}% 125
+\BOOKMARK [1][-]{appendix.Alph1}{iptables.log}{part.7}% 126
+\BOOKMARK [1][-]{appendix.Alph2}{Opciones de rsync}{part.7}% 127
+\BOOKMARK [1][-]{appendix.Alph3}{Ejemplo completo de configuraci\363n DRBD}{part.7}% 128
