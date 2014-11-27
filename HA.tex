@@ -8,7 +8,7 @@
 		\item Modo Fail-stop: Al fallar, el sistema deja de funcionar
 	\end{itemize}
 	\item Tolerancia a fallos: Propiedad que permite a un sistema continuar operando correctamente ante fallos de algunos de sus componentes	
-	\item Cada sistema existe sobre un continuo de tiempo dividido en Tiempo entre Fallas y Tiempo de Reparación. 
+	\item Cada sistema existe sobre un continuo de tiempo dividido en Tiempo entre Fallas (TTF) y Tiempo de Reparación (TTR). 
 	\begin{itemize}
 		\item MTBF (\textit{Mean Time Between Failures}), tiempo promedio entre fallos.
 		\item MTTR (\textit{Mean Time To Repair}), tiempo promedio para la reparación.
@@ -18,17 +18,26 @@
 		\item En promedio, $D = MTBF / (MTBF + MTTR)$.
 		\item La disponibilidad se elevará entonces aumentando el MTBF y/o reduciendo el MTTR. 
 		\item La selección de sistemas confiables a nivel de hardware apunta a aumentar el MTBF. 
-		\item La implementación de técnicas de Alta Disponibilidad pretende reducir lo más posible los períodos de carencia de los servicios o MTTR. 
+		\item La implementación de técnicas de Alta Disponibilidad pretende reducir lo más posible los períodos de carencia de los servicios o TTR, por lo tanto el MTTR. 
 		\item En esta fórmula se consideran únicamente los tiempos de carencia del servicio \textit{no planificados}.
 	\end{itemize}
+	\item Paradas planificadas
+	\begin{itemize}		
+		\item Backups, instalación de patches, upgrades
+	\end{itemize}
+	\item Paradas no planificadas
+	\begin{itemize}		
+		\item Recuperables: Error de la aplicación, error del operador, apagones, caídas de red, fallas de hardware
+		\item Desastres: Accidentes, robos, sabotajes, incendios, meteoros, catástrofes naturales
+	\end{itemize}
+	\item La no disponibilidad tiene generalmente un costo para la organización, y puede controlarse con medidas especiales.
 \end{itemize}
-
 
 \subsection{Alta Disponibilidad}
 
-Las técnicas de Alta Disponibilidad (\textit{High Availability, HA}) buscan construir un sistema que dé soporte para la provisión de un servicio durante la mayor parte del tiempo que sea posible. Las medidas para lograr esta meta abarcan varios niveles de actividad, y van desde prácticas adecuadas de administración de sistemas, pasando por elecciones especiales de soporte de hardware, políticas de backup, implantación de sistemas especiales de HA con redundancia, hasta la preparación de estrategias de Recuperación de Desastres (\textit{Disaster Recovery}). 
+Las técnicas de Alta Disponibilidad (\textit{High Availability, HA}) buscan construir un sistema que dé soporte para la provisión de un servicio durante la mayor parte del tiempo que sea posible. Las medidas para lograr esta meta abarcan varios niveles de actividad, y van desde prácticas adecuadas de administración de sistemas, pasando por elecciones especiales de soporte de hardware, políticas de backup, implantación de sistemas especiales de HA con redundancia, hasta la preparación de estrategias de Recuperación de Desastres (\textit{Disaster Recovery}). Las medidas se apoyan unas en otras, y deben ser implementadas en orden creciente de complejidad y costo (Fig. \ref{fig:nivelesha}). 
 
-En general, existe un costo asociado a la disponibilidad en forma directamente proporcional. La disponibilidad agrega complejidad y costos de mantenimiento a los sistemas. Es preferible aplicar las técnicas de disponibilidad en orden de complejidad y costo creciente, hasta equilibrar necesidades y presupuestos.
+\figura[15]{nivelesha}{Jerarquía de medidas de disponibilidad}{niveles-ha.pdf}
 
 Alta disponibilidad \textbf{no es}:
 \begin{itemize}
@@ -38,9 +47,9 @@ Alta disponibilidad \textbf{no es}:
 	\item Recuperación de Desastres, donde se supone que existe una pérdida de datos que se debe subsanar.
 \end{itemize}
 
-Con HA, aunque el usuario puede llegar a percibir interrupciones del servicio, se puede lograr un \quotes{tiempo de reparación} tolerable. En la práctica, ante un evento de impacto, esto se traduce en una conexión interrumpida con el servicio pero que se recupera dentro de las próximas acciones del cliente (siguientes reintentos de lectura por la aplicación, siguiente click del usuario, etc.). 
+Al implementar medidas de Alta Disponibilidad no pretendemos servicio continuo. Sin embargo, aunque el usuario puede llegar a percibir interrupciones o anomalías en el servicio, normalmente se puede lograr un \quotes{tiempo de reparación} tolerable, y a veces imperceptible. En la práctica, ante un evento de impacto, esto se traduce en una conexión interrumpida con el servicio pero que se recupera dentro de las próximas acciones del cliente (siguientes reintentos de lectura por la aplicación, siguiente click del usuario, etc.). 
 
-\subsection{Puntos únicos de falla}
+\subsection{Redundancia y disponibilidad}
 El principio fundamental de HA es la eliminación de los puntos únicos de falla (\textit{Single Point of Failure, SPOF}) por duplicación o multiplicación de puntos de servicio. Esta técnica se llama en general \textit{redundancia}. 
 
 Si un servicio tiene una disponibilidad de 90\% (o sea, una probabilidad de estar disponible igual a 0.9) sobre un período dado, su probabilidad de carencia o no disponibilidad en ese período es $1 - 0.9 = 0.1$. Si el recurso puede implementarse en forma redundante, y suponiendo eventos de fallo independientes, la probabilidad de que dos instancias del recurso estén no disponibles a la vez en ese mismo período es $0.1 * 0.1 = 0.01$; con lo cual la probabilidad de disponibilidad del servicio es ahora $1 - 0.01 = 0.99$, o sea 99\% para dicho período. Al agregarse la segunda instancia de recurso se ha eliminado el SPOF y se ha ganado un orden de magnitud en disponibilidad.
@@ -49,6 +58,31 @@ Para ilustración, cuando un servicio tiene una disponibilidad del 99\% por año
 
 La suposición de que los eventos de fallo son independientes se basa en que no existan SPOFs de nivel superior, es decir, anteriores en la cadena de precondiciones para el servicio (por ejemplo, se supone que existen diferentes líneas de alimentación eléctrica). No es posible construir un sistema completo sin ningún SPOF, pero es posible delimitar ámbitos de responsabilidad donde no existan.
 
+
+
+\subsection{Métricas económicas}
+
+\begin{description}
+\item [Probabilidad] Cantidad de veces que se espera ocurra el evento durante la vida remanente del sistema. Un evento que puede ocurrir semanalmente durante los próximos cinco años tiene una probabilidad de 260\footnote{Este concepto de probabilidad se llama originalmente \textit{likelihood}, y claramente no se trata del mismo concepto de la probabilidad matemática, que únicamente puede tomar valores entre 0 y 1.}.
+\item [Duración] Cantidad de tiempo en que los usuarios carecerán del servicio a causa del evento. Incluye el tiempo necesario para el restablecimiento del servicio y para notificar a los usuarios dicho restablecimiento.
+\item [Impacto] Porcentaje de la comunidad de usuarios que se verá afectada por el evento.
+\end{description}
+
+\begin{itemize}
+ 	\item Cálculo de riesgos para cada evento $e_{i}$ en el sistema original 
+ 	\begin{itemize}
+ 		\item Efecto $E_{b} = Probabilidad * Duraci\'on * Impacto$
+ 		\item Riesgo $R_{b} = Costo(ND) * \sum{ E_{b}(e_{i})}$
+ 	\end{itemize}
+ 	\item Luego de implementar HA
+ 	\begin{itemize}
+ 		\item Efecto $E_{a} = Probabilidad_{HA} * Duración_{HA} * Impacto_{HA}$
+ 		\item Riesgo $R_{a} = Costo(ND) * \sum{ E_{a}(e_{i}) + Costo(HA)}$
+ 		\item Ahorro $A = R_{b} - R_{a}$
+ 	\end{itemize}
+ 	\item Retorno de inversión $ROI = A / Costo(HA)$
+\end{itemize}
+ 
 
 % #### Heartbeat
 % El componente fundamental del HAC es un servicio de detección de fallas de los peers dentro del cluster. Este software permite determinar en qué momento un nodo debe hacerse responsable de un servicio. Este suele llamarse servicio de heartbeat (\"latido\") ya que es el equivalente de \"tomar el pulso\" del servidor primario. 
